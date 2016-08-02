@@ -22,12 +22,12 @@ comparisons:
       - siAGO2_2
     
 samples:
-   mock_1: raw_data/mock_1_sub.fastq
-   mock_2: raw_data/mock_2_sub.fastq
-   siAGO2_1: raw_data/siAGO2_1_sub.fastq
-   siAGO2_2: raw_data/siAGO2_2_sub.fastq
-   dsLamin_1: raw_data/dsLamin_1_sub.fastq
-   dsLamin_2: raw_data/dsLamin_2_sub.fastq
+   mock_1: /data/Lei/4C/behram-4c/raw_data/mock_1.fastq
+   mock_2: /data/Lei/4C/behram-4c/raw_data/mock_2.fastq
+   siAGO2_1: /data/Lei/4C/behram-4c/raw_data/siAGO2_1.fastq
+   siAGO2_2: /data/Lei/4C/behram-4c/raw_data/siAGO2_2.fastq
+   dsLamin_1: /data/Lei/4C/behram-4c/raw_data/dsLamin_1.fastq
+   dsLamin_2: /data/Lei/4C/behram-4c/raw_data/dsLamin_2.fastq
 
 other:
   bait_chr: chr2L
