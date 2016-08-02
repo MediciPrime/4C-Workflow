@@ -1,0 +1,42 @@
+comparisons:
+  mock_vs_siAGO2:
+    treatment:
+      - siAGO2_1
+      - siAGO2_2
+    control:
+      - mock_1
+      - mock_2
+  mock_vs_dsLamin:
+    treatment:
+      - dsLamin_1
+      - dsLamin_2
+    control:
+      - mock_1
+      - mock_2
+  siAGO2_vs_dsLamin:
+    treatment:
+      - dsLamin_1
+      - dsLamin_2
+    control:
+      - siAGO2_1
+      - siAGO2_2
+    
+samples:
+   mock_1: raw_data/mock_1_sub.fastq
+   mock_2: raw_data/mock_2_sub.fastq
+   siAGO2_1: raw_data/siAGO2_1_sub.fastq
+   siAGO2_2: raw_data/siAGO2_2_sub.fastq
+   dsLamin_1: raw_data/dsLamin_1_sub.fastq
+   dsLamin_2: raw_data/dsLamin_2_sub.fastq
+
+other:
+  bait_chr: chr2L
+  bait_coord: 15318925
+  bait_name: nht
+  primary_enz: AAGCTT
+  species: dm
+  primary_enz_name: hindiii
+  reduced_genome: dm6
+  fragment_len: 37
+  primer: ACCGTTTTTGACAACAGCAGCTGTA
+  
