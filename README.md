@@ -34,7 +34,7 @@ You are now ready to use <em>4C-Workflow</em> to perform your analysis.
 <li>Lastly add both a <em>.fasta</em> reference genome and primary enzyme sequence to the <em>reduced_genome</em> folder</li>
 </ol>
 
-<b>Note:</b> Make sure that your <em>.tsv</em> file names have <em>_vs_</em> between the two conditions you are comparing
+<b>Note:</b> Make sure that your <em>.tsv</em> file names have <em>"_vs_"</em> between the two conditions you are comparing
 
 ## RUN!!!
 <ul>
