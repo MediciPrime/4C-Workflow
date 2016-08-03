@@ -18,9 +18,9 @@ if(file.access(file) == -1) {
 library(R.4Cker)
 library(yaml)
 
-#st = read.table(as.character(sampletable), header=TRUE)
+st = read.table(as.character(sampletable), header=TRUE)
 
-st = read.table("siAGO2_vs_dsLamin.tsv", header=TRUE)
+#st = read.table("siAGO2_vs_dsLamin.tsv", header=TRUE)
 
 setwd("bedGraphs/")
 
@@ -36,7 +36,7 @@ samples = as.character(st$sampleID)
 
 output_dir = sprintf("../output/%s_vs_%s/", conditions[1], conditions[2])
 
-my_obj = createR4CkerObjectFromFiles(files = c(files[1], files[2], files[3], files[4]), bait_chr = shQuote(config$other$bait_chr), bait_coord = config$other$bait_coord, bait_name = config$other$bait_name, primary_enz = config$other$primary_enz, samples = c(samples[1], samples[2], samples[3], samples[4]), conditions = c(conditions[1], conditions[2]), replicates = c(replicates[1], replicates[2]), species = config$other$species, output_dir = output_dir)
+my_obj = createR4CkerObjectFromFiles(files = c(files[1], files[2], files[3], files[4]), bait_chr = config$other$bait_chr, bait_coord = config$other$bait_coord, bait_name = config$other$bait_name, primary_enz = config$other$primary_enz, samples = c(samples[1], samples[2], samples[3], samples[4]), conditions = c(conditions[1], conditions[2]), replicates = c(replicates[1], replicates[2]), species = config$other$species, output_dir = output_dir)
 
 nb_results = nearBaitAnalysis(my_obj, k=10)
 
