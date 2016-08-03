@@ -122,8 +122,8 @@ rule purify_aligned_bedGraph:
 rule R_script:
     input:
         sampleTable="{comparison}.tsv",
-        bedGraph="bedGraphs/{samples}_aligned_rm_self_und.bedGraph"
+        bedGraph=lambda wc: config["comparisons"][wc.comparison]
     output:
-        "output/{comparison}/{samples}_nearbait_norm_counts.bedGraph"
+        "output/{comparison}/{sample}_nearbait_norm_counts.bedGraph"
     shell:
         "Rscript 4C.R {input.sampleTable}"
