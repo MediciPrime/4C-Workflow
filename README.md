@@ -38,7 +38,7 @@ You are now ready to use <em>4C-Workflow</em> to perform your analysis.
 ## RUN!!!
 <ul>
 <li>Run the following command: <code>sh runscript</code></li>
-<li>Wait for the analysis and find your results in <em>Output</em> folder</li>
+<li>Wait for the analysis to finish and find your results in <em>Output</em> folder</li>
 </ul>
 
 ## View Results
