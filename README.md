@@ -41,19 +41,19 @@ You are now ready to use *4C-Workflow* to analyze your raw 4C data.
 	   - *Snakemake* will use the path name to find all the raw *.fastq* files
 	   - Make sure to insert the **full path** to your *.fastq* files
 	 - **other**
-	   - *bait_chr*: short form of the chromosome name
-	   - *bait_coord*: numerical start site for your primer, usually after restriction enzyme site
-	   - *bait_name*: the shortform bait name
-	   - *primary_enz*: sequence of the primary enzyme
-	   - *species*: shortform species name
-	   - *reduced_genome*: shortform name of reference genome
-	   - *fragment_len*: barcode + primer + primary restriction enzyme, eg. 37
-	   - *primer*: genome sequence for the primer
+	     - *bait_chr*: short form of the chromosome name
+	     - *bait_coord*: numerical start site for your primer, usually after restriction enzyme site
+	     - *bait_name*: the shortform bait name
+	     - *primary_enz*: sequence of the primary enzyme
+	     - *species*: shortform species name
+	     - *reduced_genome*: shortform name of reference genome
+	     - *fragment_len*: barcode + primer + primary restriction enzyme, eg. 37
+	     - *primer*: genome sequence for the primer
 2. You may also notice the following files:
    * mock_vs_siAGO2.tsv
    * mock_vs_dsLamin.tsv
    * siAGO2_vs_dsLamin.tsv
-   - A *.tsv* file is created for each of the experimental conditions specified in the **comparisons** section from above
+     - A *.tsv* file is created for each of the experimental conditions specified in the **comparisons** section from above
 4. Lastly add both a *.fasta* reference genome and primary enzyme sequence to the *reduced_genome* folder
    - **Make Sure** the names for both the reference genome and enzyme match the names provided for *primary_enz_name* and *reduced_genome* from **other**
 	 - eg. dm6 == dm6.fasta & hindiii == hindiii.fasta
