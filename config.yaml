@@ -1,26 +1,20 @@
 comparisons:
   mock_vs_siAGO2:
-    treatment:
-      - siAGO2_1
-      - siAGO2_2
-    control:
-      - mock_1
-      - mock_2
+    - bedGraphs/siAGO2_1_aligned_rm_self_und.bedGraph
+    - bedGraphs/siAGO2_2_aligned_rm_self_und.bedGraph
+    - bedGraphs/mock_1_aligned_rm_self_und.bedGraph
+    - bedGraphs/mock_2_aligned_rm_self_und.bedGraph
   mock_vs_dsLamin:
-    treatment:
-      - dsLamin_1
-      - dsLamin_2
-    control:
-      - mock_1
-      - mock_2
+    - bedGraphs/dsLamin_1_aligned_rm_self_und.bedGraph
+    - bedGraphs/dsLamin_2_aligned_rm_self_und.bedGraph
+    - bedGraphs/mock_1_aligned_rm_self_und.bedGraph
+    - bedGraphs/mock_2_aligned_rm_self_und.bedGraph
   siAGO2_vs_dsLamin:
-    treatment:
-      - dsLamin_1
-      - dsLamin_2
-    control:
-      - siAGO2_1
-      - siAGO2_2
-    
+    - bedGraphs/dsLamin_1_aligned_rm_self_und.bedGraph
+    - bedGraphs/dsLamin_2_aligned_rm_self_und.bedGraph
+    - bedGraphs/siAGO2_1_aligned_rm_self_und.bedGraph
+    - bedGraphs/siAGO2_2_aligned_rm_self_und.bedGraph
+
 samples:
    mock_1: /data/Lei/4C/behram-4c/raw_data/mock_1.fastq
    mock_2: /data/Lei/4C/behram-4c/raw_data/mock_2.fastq
