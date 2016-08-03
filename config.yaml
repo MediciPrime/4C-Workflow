@@ -25,12 +25,12 @@ samples:
 
 other:
   bait_chr: chr2L
-  bait_coord: 15318925
-  bait_name: nht
+  bait_coord: 1234567
+  bait_name: someBait
   primary_enz: AAGCTT
   species: dm
   primary_enz_name: hindiii
   reduced_genome: dm6
   fragment_len: 37
-  primer: ACCGTTTTTGACAACAGCAGCTGTA
+  primer: ACACCCGGTGTGTGTGTGTGTG
   
