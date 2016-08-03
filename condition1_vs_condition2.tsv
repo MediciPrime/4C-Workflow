@@ -1,0 +1,5 @@
+sampleID	treatment	replicate
+condition1_1	control		1
+condition1_2	control		2
+condition2_1	treated		1
+condition2_2	treated		2
