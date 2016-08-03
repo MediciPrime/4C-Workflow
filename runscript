@@ -1,6 +1,5 @@
 #!/bin/bash
 
-#conda create --name 4C-ker --file environment.txt
 source activate 4C-Workflow
 snakemake --cores 8
 
