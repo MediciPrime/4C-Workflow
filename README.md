@@ -50,9 +50,9 @@ You are now ready to use *4C-Workflow* to analyze your raw 4C data.
 	     - *fragment_len*: barcode + primer + primary restriction enzyme, eg. 37
 	     - *primer*: genome sequence for the primer
 2. You may also notice the following files:
-   * mock_vs_siAGO2.tsv
-   * mock_vs_dsLamin.tsv
-   * siAGO2_vs_dsLamin.tsv
+   * mock_vs_condition1.tsv
+   * mock_vs_condition2.tsv
+   * condition1_vs_condition2.tsv
    * A *.tsv* file is created for each of the experimental conditions specified in the **comparisons** section from above
 3. Lastly add both a *.fasta* reference genome and primary enzyme sequence to the *reduced_genome* folder
    - **Make Sure** the names for both the reference genome and enzyme match the names provided for *primary_enz_name* and *reduced_genome* from **other**
