@@ -1,25 +1,7 @@
 configfile: "config.yaml"
 
-
-targets=expand("reduced_genome/{genome}_{enzyme}_flanking_sequences_{fragLen}_unique.{num}.bt2",
-                num=[1, 2, 3, 4],
-                genome=config["other"]["reduced_genome"],
-                enzyme=config["other"]["primary_enz_name"],
-                fragLen=config["other"]["fragment_len"])
-targets+=expand("sam_files/{sample}_aligned.sam",
-                sample=config["samples"].keys())
-"""
-targets+=expand("sam_files/{sample}_aligned.bedGraph",
-                sample=config["samples"]), "temp.bed"
-"""
-
-targets+=expand("bedGraphs/{sample}_aligned_rm_self_und.bedGraph",
-                sample=config["samples"])
-
-targets+=expand("output/{comparison}/{sample}_nearbait_norm_counts.bedGraph",
-                comparison=config["comparisons"],
-                sample=config["samples"])
-
+targets=expand("output/{comparison}/",
+                comparison=config["comparisons"])
 
 
 HERE = srcdir('')
@@ -124,6 +106,6 @@ rule R_script:
         sampleTable="{comparison}.tsv",
         bedGraph=lambda wc: config["comparisons"][wc.comparison]
     output:
-        "output/{comparison}/{sample}_nearbait_norm_counts.bedGraph"
+        "output/{comparison}/"
     shell:
         "Rscript 4C.R {input.sampleTable}"
