@@ -6,7 +6,7 @@ you to get to your results faster.
 
 This workflow depends heavily upon *Miniconda*, *R.4Cker*, and *Snakemake* so if you
 want know what they are checkout the links below. Otherwise just follow the **setup**
-process and you should be able to get the *4C-Workflow* up and running.
+process and you should be able to get *4C-Workflow* up and running.
 
 * [Miniconda](http://conda.pydata.org/miniconda.html)
 * [R.4Cker Github](https://github.com/rr1859/R.4Cker)
