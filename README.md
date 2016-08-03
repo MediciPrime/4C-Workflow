@@ -55,7 +55,8 @@ You are now ready to use *4C-Workflow* to analyze your raw 4C data.
    * siAGO2_vs_dsLamin.tsv
 
 **Note:** A *.tsv* file is created for each of the experimental conditions specified in the **comparisons** section from above
-4. Lastly add both a *.fasta* reference genome and primary enzyme sequence to the *reduced_genome* folder
+
+3. Lastly add both a *.fasta* reference genome and primary enzyme sequence to the *reduced_genome* folder
    - **Make Sure** the names for both the reference genome and enzyme match the names provided for *primary_enz_name* and *reduced_genome* from **other**
 	 - eg. dm6 == dm6.fasta & hindiii == hindiii.fasta
 
