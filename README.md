@@ -70,3 +70,7 @@ You are now ready to use *4C-Workflow* to analyze your raw 4C data.
 ## View Results
 
 Either IGV or UCSC Genome Browser can be used to view the .bedGraph and .bed files.
+
+### Acknowledgements
+
+This pipeline would not have been possible without the constant guidance from [Ryan Dale](https://github.com/daler) and the awesome resources at the NIH.
