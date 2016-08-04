@@ -58,7 +58,7 @@ You are now ready to use *4C-Workflow* to analyze your raw 4C data.
    - **Make Sure** the names for both the reference genome and enzyme match the names provided for *primary_enz_name* and *reduced_genome* from **other**
 	 - eg. dm6 == dm6.fasta & hindiii == hindiii.fasta
 
-**Note:** Make sure that your *.tsv* file names have *_vs_* between the two conditions you are comparing
+**Note:** Make sure that your *.tsv* file names have *\_vs\_* between the two conditions you are comparing
 
 ## RUN!!!
 
