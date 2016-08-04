@@ -34,9 +34,10 @@ You are now ready to use *4C-Workflow* to analyze your raw 4C data.
    - The file is divided into three general blocks:
 	 - **comparisons**
 	   - Raw bedGraphs for each of the experimental comparisons are placed here
-	   - Make sure to follow the exact formatting displayed in the example
-		 - **Note:** Each of the conditions in the example have two replicates
-		 - *bedGraph/* is the folder that *Snakemake* will place the files into
+	    - Make sure to follow the **exact formatting** displayed in the example
+	    - **Don't forget** to change the *names* for each of the comparisions
+		  - **Note:** Each of the conditions in the example have two replicates
+		  - *bedGraph/* is the folder that *Snakemake* will place the files into
 	 - **samples**
 	   - *Snakemake* will use the path name to find all the raw *.fastq* files
 	   - Make sure to insert the **full path** to your *.fastq* files
