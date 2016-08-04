@@ -64,7 +64,7 @@ You are now ready to use *4C-Workflow* to analyze your raw 4C data.
 
 1. Finally open the terminal and while inside the *4C-Workflow/* folder run the following command:
    - `sh runscript`
-2. Wait for the analysis to finish and find your results in *Output/* folder
+2. Wait for the analysis to finish and find your results in the *Output/* folder
 
 
 ## View Results
