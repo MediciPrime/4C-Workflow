@@ -3,30 +3,27 @@
 library(argparse)
 
 parser <- ArgumentParser()
-parser$add_argument("file", nargs=1, help="SampleTable to be used")
+parser$add_argument("files", nargs=1, help="bedGraph files to be used")
+parser$add_argument("bait", nargs=1, help="bait being used")
 
 args <- parser$parse_args()
 
-file <- args$file
+files <- args$files
+sample <- args$samples
+bait <- args$baitInfo
 
-if(file.access(file) == -1) {
-    stop(sprintf("Specified sampletable ( %s ) does not exist", file))
+if(file.access(files) == -1) {
+    stop(sprintf("There weren't any files provided.", files))
 } else {
-    sampletable = file
+    files = files
 }
 
 library(R.4Cker)
 library(yaml)
 
-st = read.table(as.character(sampletable), header=TRUE)
+#wd=paste0("bedGraphs/", bait)
 
-#st = read.table("siAGO2_vs_dsLamin.tsv", header=TRUE)
-
-setwd("bedGraphs/")
-
-config = yaml.load_file("../config.yaml")
-
-files = as.character(lapply(st$sampleID, function(x) paste0(x, "_aligned_rm_self_und.bedGraph")))
+config = yaml.load_file("config.yaml")
 
 conditions = as.character(unique(unlist(lapply(strsplit(unlist(lapply(st$sampleID, as.character)), '_'), function(x) x[1]))))
 
@@ -36,7 +33,7 @@ samples = as.character(st$sampleID)
 
 output_dir = sprintf("../output/%s_vs_%s/", conditions[1], conditions[2])
 
-my_obj = createR4CkerObjectFromFiles(files = c(files[1], files[2], files[3], files[4]), bait_chr = config$other$bait_chr, bait_coord = config$other$bait_coord, bait_name = config$other$bait_name, primary_enz = config$other$primary_enz, samples = c(samples[1], samples[2], samples[3], samples[4]), conditions = c(conditions[1], conditions[2]), replicates = c(replicates[1], replicates[2]), species = config$other$species, output_dir = output_dir)
+my_obj = createR4CkerObjectFromFiles(files = c(files[1], files[2], files[3], files[4]), bait_chr = config$other$bait_chr, bait_coord = config$baits$[[bait]]$bait_coord, bait_name = config$other$bait_name, primary_enz = config$other$primary_enz, samples = c(samples[1], samples[2], samples[3], samples[4]), conditions = c(conditions[1], conditions[2]), replicates = c(replicates[1], replicates[2]), species = config$other$species, output_dir = output_dir)
 
 nb_results = nearBaitAnalysis(my_obj, k=10)
 

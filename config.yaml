@@ -1,36 +1,74 @@
 comparisons:
   mock_vs_condition1:
-    - bedGraphs/condition1_1_aligned_rm_self_und.bedGraph
-    - bedGraphs/condition1_2_aligned_rm_self_und.bedGraph
-    - bedGraphs/mock_1_aligned_rm_self_und.bedGraph
-    - bedGraphs/mock_2_aligned_rm_self_und.bedGraph
+    nht:
+      - mock_1
+      - mock_2
+      - condition1_1
+      - condition1_2
+    someBait:
+      - mock_1
+      - mock_2
+      - condition1_1
+      - condition1_2
   mock_vs_condition2:
-    - bedGraphs/condition2_1_aligned_rm_self_und.bedGraph
-    - bedGraphs/condition2_2_aligned_rm_self_und.bedGraph
-    - bedGraphs/mock_1_aligned_rm_self_und.bedGraph
-    - bedGraphs/mock_2_aligned_rm_self_und.bedGraph
+    nht:
+      - mock_1
+      - mock_2
+      - condition2_1
+      - condition2_2      
+    someBait:
+      - mock_1
+      - mock_2
+      - condition2_1
+      - condition2_2    
   condition1_vs_condition2:
-    - bedGraphs/condition1_1_aligned_rm_self_und.bedGraph
-    - bedGraphs/condition1_2_aligned_rm_self_und.bedGraph
-    - bedGraphs/condition2_1_aligned_rm_self_und.bedGraph
-    - bedGraphs/condition2_2_aligned_rm_self_und.bedGraph
+    nht:
+      - condition1_1
+      - condition1_2
+      - condition2_1
+      - condition2_2
+    someBait:
+      - condition1_1
+      - condition1_2
+      - condition2_1
+      - condition2_2
 
 samples:
-   mock_1: /from/root/4C/raw_data/mock_1.fastq
-   mock_2: /from/root/4C/raw_data/mock_2.fastq
-   siAGO2_1: /from/root/4C/raw_data/condition1_1.fastq
-   siAGO2_2: /from/root/4C/raw_data/condition1_2.fastq
-   dsLamin_1: /from/root/4C/raw_data/condition2_1.fastq
-   dsLamin_2: /from/root/4C/raw_data/condition2_2.fastq
+  someBait:
+    mock_1: /from/root/4C/raw_data/mock_1.fastq
+    mock_2: /from/root/4C/raw_data/mock_2.fastq
+    condition1_1: /from/root/4C/raw_data/condition1_1.fastq
+    condition1_2: /from/root/4C/raw_data/condition1_2.fastq
+    condition2_1: /from/root/4C/raw_data/condition2_1.fastq
+    condition2_2: /from/root/4C/raw_data/condition2_2.fastq
+    
+  nht:
+    mock_1: /from/root/4C/raw_data/mock_1.fastq
+    mock_2: /from/root/4C/raw_data/mock_2.fastq
+    condition1_1: /from/root/4C/raw_data/condition1_1.fastq
+    condition1_2: /from/root/4C/raw_data/condition1_2.fastq
+    condition2_1: /from/root/4C/raw_data/condition2_1.fastq
+    condition2_2: /from/root/4C/raw_data/condition2_2.fastq
 
-other:
-  bait_chr: chr2L
-  bait_coord: 1234567
-  bait_name: someBait
-  primary_enz: AAGCTT
-  species: dm
-  primary_enz_name: hindiii
-  reduced_genome: dm6
-  fragment_len: 37
-  primer: ACACCCGGTGTGTGTGTGTGTG
+baits:
+  someBait:    
+    bait_chr: chr2L
+    bait_coord: 1234567
+    bait_name: someBait
+    primary_enz: AAGCTT
+    species: dm
+    primary_enz_name: hindiii
+    reduced_genome: dm6
+    fragment_len: 37
+    primer: ACACCCGGTGTGTGTGTGTGTG
   
+  nht:
+    bait_chr: chr2L
+    bait_coord: 1234567
+    bait_name: someBait
+    primary_enz: AAGCTT
+    species: dm
+    primary_enz_name: hindiii
+    reduced_genome: dm6
+    fragment_len: 37
+    primer: ACACCCGGTGTGTGTGTGTGTG
