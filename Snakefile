@@ -120,4 +120,4 @@ rule R_script:
     output:
         "output/{comparison}/{bait}_stats.txt"
     shell:
-        "Rscript 4C.R {input.bedGraph} {wildcards.bait}"
+        "Rscript 4C.R {input.bedGraph} {wildcards.bait} {wildcards.comparison}"

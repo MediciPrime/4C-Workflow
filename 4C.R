@@ -25,15 +25,15 @@ library(yaml)
 
 config = yaml.load_file("config.yaml")
 
-conditions = as.character(unique(unlist(lapply(strsplit(unlist(lapply(st$sampleID, as.character)), '_'), function(x) x[1]))))
+conditions = unlist(strsplit(comparison, '_vs_'))
 
-replicates = c(as.vector(table(st$treatment)["control"]), as.vector(table(st$treatment)["treated"]))
+replicates = c(length(config$comparisons[[comparison]][[bait]]$control), length(config$comparisons[[comparison]][[bait]]$treatment)
 
-samples = as.character(st$sampleID)
+samples = c(unlist(config$comparisons[[comparison]][[bait]]$control), unlist(config$comparisons[[comparison]][[bait]]$treatment))
 
-output_dir = sprintf("../output/%s_vs_%s/", conditions[1], conditions[2])
+output_dir = sprintf("../output/%s/%s/", comparison, bait)
 
-my_obj = createR4CkerObjectFromFiles(files = c(files[1], files[2], files[3], files[4]), bait_chr = config$other$bait_chr, bait_coord = config$baits$[[bait]]$bait_coord, bait_name = config$other$bait_name, primary_enz = config$other$primary_enz, samples = c(samples[1], samples[2], samples[3], samples[4]), conditions = c(conditions[1], conditions[2]), replicates = c(replicates[1], replicates[2]), species = config$other$species, output_dir = output_dir)
+my_obj = createR4CkerObjectFromFiles(files = c(files[1], files[2], files[3], files[4]), bait_chr = config$baits[[bait]]$bait_chr, bait_coord = config$baits[[bait]]$bait_coord, bait_name = config$baits[[bait]]$bait_name, primary_enz = config$baits[[bait]]$primary_enz, samples = c(samples[1], samples[2], samples[3], samples[4]), conditions = c(conditions[1], conditions[2]), replicates = c(replicates[1], replicates[2]), species = config$other$species, output_dir = output_dir)
 
 nb_results = nearBaitAnalysis(my_obj, k=10)
 

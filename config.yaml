@@ -1,37 +1,49 @@
 comparisons:
   mock_vs_condition1:
     nht:
-      - mock_1
-      - mock_2
-      - condition1_1
-      - condition1_2
+      control:
+        - mock_1
+        - mock_2
+      treatment:
+        - condition1_1
+        - condition1_2
     someBait:
-      - mock_1
-      - mock_2
-      - condition1_1
-      - condition1_2
+      control:
+        - mock_1
+        - mock_2
+      treatment:
+        - condition1_1
+        - condition1_2
   mock_vs_condition2:
     nht:
-      - mock_1
-      - mock_2
-      - condition2_1
-      - condition2_2      
+      control:
+        - mock_1
+        - mock_2
+      treatment:
+        - condition2_1
+        - condition2_2      
     someBait:
-      - mock_1
-      - mock_2
-      - condition2_1
-      - condition2_2    
+      control:
+        - mock_1
+        - mock_2
+      treatment:
+        - condition2_1
+        - condition2_2    
   condition1_vs_condition2:
     nht:
-      - condition1_1
-      - condition1_2
-      - condition2_1
-      - condition2_2
+      control:
+        - condition1_1
+        - condition1_2
+      treatment:
+        - condition2_1
+        - condition2_2
     someBait:
-      - condition1_1
-      - condition1_2
-      - condition2_1
-      - condition2_2
+      control:
+        - condition1_1
+        - condition1_2
+      treatment:
+        - condition2_1
+        - condition2_2
 
 samples:
   someBait:
