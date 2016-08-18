@@ -19,12 +19,12 @@ def wrapper_for(tool):
     """
     return os.path.join(HERE, WRAPPER, tool)  
 
-"""
-primer= config[comparison]["primer"]
-genome= config[comparison]["reduced_genome"]
-enzyme= config[comparison]["primary_enz_name"]
-fragLen= config[comparison]["fragment_len"]
-"""
+
+primer= config["baits"][wc.bait]["primer"]
+genome= config["baits"][wc.bait]["reduced_genome"]
+enzyme= config["baits"][wc.bait]["primary_enz_name"]
+fragLen= config["baits"][wc.bait]["fragment_len"]
+
 
 rule all:
     input:
@@ -59,14 +59,11 @@ rule bowtie2_build:
 rule bowtie2:
     input:
         bowtie=expand("reduced_genome/{genome}_{enzyme}_flanking_sequences_{fragLen}_unique.{num}.bt2",
-                      genome=config[comparison]["reduced_genome"],
-                      enzyme=config[comparison]["primary_enz_name"],
-                      fragLen=config[comparison]["fragment_len"],
-                      num=[1, 2, 3, 4]),
-        fastq=lambda wc: config["samples"][wc.sample]
+                      genome=genome, enzyme=enzyme, fragLen=fragLen, num=[1, 2, 3, 4]),
+        fastq=lambda wc: config["samples"][wc.bait][wc.sample]
     output:
-        aligned_sam="sam_files/{sample}_aligned.sam",
-        unaligned_sam="sam_files/{sample}_unaligned.sam"
+        aligned_sam="sam_files/{wildcards.bait}/{sample}_aligned.sam",
+        unaligned_sam="sam_files/{wildcards.bait}/{sample}_unaligned.sam"
     threads:
         8
     params:
@@ -81,17 +78,19 @@ rule bowtie2:
 
 rule bedGraph_Counts:
     input:
-        sam="sam_files/{sample}_aligned.sam"
+        sam="sam_files/{wildcards.bait}/{sample}_aligned.sam"
     output:
-        "sam_files/{sample}_aligned.bedGraph"
+        "sam_files/{wildcards.bait}/{sample}_aligned.bedGraph"
     wrapper:
         wrapper_for("sam_bedGraph")
 
 
 rule purify_helper:
     input:
-        fasta="reduced_genome/{genome}_{enzyme}_flanking_sequences_{fragLen}_unique_2.fa",
-        bed="reduced_genome/{genome}_{enzyme}_flanking_sites_{fragLen}_unique_2.bed"
+        fasta="reduced_genome/{genome}_{enzyme}_flanking_sequences_{fragLen}_unique_2.fa"\
+            .format(**locals()),
+        bed="reduced_genome/{genome}_{enzyme}_flanking_sites_{fragLen}_unique_2.bed"\
+            .format(**locals())
     output:
         temp("temp.bed")
     params:
@@ -101,14 +100,12 @@ rule purify_helper:
 
 rule purify_aligned_bedGraph:
     input:
-        aligned_bedG="sam_files/{sample}_aligned.bedGraph",
+        aligned_bedG="sam_files/{wildcards.bait}/{sample}_aligned.bedGraph",
         temp_bed = "temp.bed"
     output:
-        "bedGraphs/{sample}_aligned_rm_self_und.bedGraph"
-    run:
-        import pybedtools
-        bt = pybedtools.BedTool(input.aligned_bedG)
-        bt.subtract(input.temp_bed, output=output[0])
+        "bedGraphs/{wildcards.bait}/{sample}_aligned_rm_self_und.bedGraph"
+    shell:
+        "bedtools substract -a input.aligned_bedG -b input.temp_bed"
 
 def get_bedgraphs(wc):
     samples = config['comparisons'][wc.comparison][wc.bait]
@@ -120,4 +117,4 @@ rule R_script:
     output:
         "output/{comparison}/{bait}_stats.txt"
     shell:
-        "Rscript 4C.R {input.bedGraph} {wildcards.bait} {wildcards.comparison}"
+        "Rscript 4C.R --bait {wildcards.bait} --comparison {wildcards.comparison}"
