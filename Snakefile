@@ -55,7 +55,7 @@ fragLen=None
 
 def get_bowtie(wc):
      genome=config['baits'][wc.bait]['reduced_genome']
-     enzyme=config['baits'][wc.bait]['primary_enz']
+     enzyme=config['baits'][wc.bait]['primary_enz_name']
      fragLen=config['baits'][wc.bait]['fragment_len']
      num=[1, 2, 3, 4]
      return expand("reduced_genome/{genome}_{enzyme}_flanking_sequences_{fragLen}_unique.{num}.bt2")
@@ -89,13 +89,13 @@ rule bedGraph_Counts:
 
 def get_fasta(wc):
     genome=config['baits'][wc.bait]['reduced_genome']
-    enzyme=config['baits'][wc.bait]['primary_enz']
+    enzyme=config['baits'][wc.bait]['primary_enz_name']
     fragLen=config['baits'][wc.bait]['fragment_len']
     return expand('reduced_genome/{genome}_{enzyme}_flanking_sequences_{fragLen}_unique_2.fa')
 
 def get_bed(wc):
     genome=config['baits'][wc.bait]['reduced_genome']
-    enzyme=config['baits'][wc.bait]['primary_enz']
+    enzyme=config['baits'][wc.bait]['primary_enz_name']
     fragLen=config['baits'][wc.bait]['fragment_len']
     return expand('reduced_genome/{genome}_{enzyme}_flanking_sites_{fragLen}_unique_2.bed')
 
