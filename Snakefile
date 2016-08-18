@@ -70,7 +70,7 @@ rule bowtie2:
     threads:
         8
     params:
-        index="reduced_genome/%s_%s_flanking_sequences_%s_unique" % (genome, enzyme, fragLen)
+        index="reduced_genome/{genome}_{enzyme}_flanking_sequences_{fragLen}_unique"
     shell:
         "bowtie2 -p {threads} -N 0 -5 {fragLen} \
         --un {output.unaligned_sam} \
