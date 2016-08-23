@@ -16,17 +16,17 @@ comparison <- args$comparison
 library(R.4Cker)
 library(yaml)
 
-#wd=paste0("bedGraphs/", bait)
-
 config = yaml.load_file("config.yaml")
 
 conditions = unlist(strsplit(comparison, '_vs_'))
 
-replicates = c(length(config$comparisons[[comparison]][[bait]]$control), length(config$comparisons[[comparison]][[bait]]$treatment)
+replicates = c(length(config$comparisons[[comparison]][[bait]]$control), length(config$comparisons[[comparison]][[bait]]$treatment))
 
 samples = c(unlist(config$comparisons[[comparison]][[bait]]$control), unlist(config$comparisons[[comparison]][[bait]]$treatment))
 
 files = unlist(unique(lapply(samples, function(x) sprintf("bedGraphs/%s/%s_aligned_rm_self_und.bedGraph", bait, samples))))
+
+dir.create(sprintf("output/%s/", comparison), showWarnings = FALSE)
 
 output_dir = sprintf("output/%s/%s/", comparison, bait)
 

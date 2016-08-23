@@ -47,20 +47,20 @@ comparisons:
 
 samples:
   someBait:
-    mock_1: /home/behram/Git/4C-Workflow/raw_data/mock_1.fastq
-    mock_2: /home/behram/Git/4C-Workflow/raw_data/mock_2.fastq
-    condition1_1: /home/behram/Git/4C-Workflow/raw_data/condition1_1.fastq
-    condition1_2: /home/behram/Git/4C-Workflow/raw_data/condition1_2.fastq
-    condition2_1: /home/behram/Git/4C-Workflow/raw_data/condition2_1.fastq
-    condition2_2: /home/behram/Git/4C-Workflow/raw_data/condition2_2.fastq
+    mock_1: /data/Lei/4C/behram-4c/raw_data/mock_1.fastq
+    mock_2: /data/Lei/4C/behram-4c/raw_data/mock_2.fastq
+    condition1_1: /data/Lei/4C/behram-4c/raw_data/siAGO2_1.fastq
+    condition1_2: /data/Lei/4C/behram-4c/raw_data/siAGO2_2.fastq
+    condition2_1: /data/Lei/4C/behram-4c/raw_data/dsLamin_1.fastq
+    condition2_2: /data/Lei/4C/behram-4c/raw_data/dsLamin_2.fastq
     
   nht:
-    mock_1: /home/behram/Git/4C-Workflow/raw_data/mock_1.fastq
-    mock_2: /home/behram/Git/4C-Workflow/raw_data/mock_2.fastq
-    condition1_1: /home/behram/Git/4C-Workflow/raw_data/condition1_1.fastq
-    condition1_2: /home/behram/Git/4C-Workflow/raw_data/condition1_2.fastq
-    condition2_1: /home/behram/Git/4C-Workflow/raw_data/condition2_1.fastq
-    condition2_2: /home/behram/Git/4C-Workflow/raw_data/condition2_2.fastq
+    mock_1: /data/Lei/4C/behram-4c/raw_data/mock_1.fastq
+    mock_2: /data/Lei/4C/behram-4c/raw_data/mock_2.fastq
+    condition1_1: /data/Lei/4C/behram-4c/raw_data/siAGO2_1.fastq
+    condition1_2: /data/Lei/4C/behram-4c/raw_data/siAGO2_2.fastq
+    condition2_1: /data/Lei/4C/behram-4c/raw_data/dsLamin_1.fastq
+    condition2_2: /data/Lei/4C/behram-4c/raw_data/dsLamin_2.fastq
 
 baits:
   someBait:    
@@ -87,4 +87,4 @@ reference_genome:
   name: dm6
   location: reduced_genome/dm6.fa
 
-#species: dm
+species: dm
