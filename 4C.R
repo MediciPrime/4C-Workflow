@@ -22,7 +22,7 @@ config = yaml.load_file("config.yaml")
 
 conditions = unlist(strsplit(comparison, '_vs_'))
 
-replicates = c(length(config$comparisons[[comparison]][[bait]]$control), length(config$comparisons[[comparison]][[bait]]$treatment)
+replicates = c(length(config$comparisons[[comparison]][[bait]]$control), length(config$comparisons[[comparison]][[bait]]$treatment))
 
 samples = c(unlist(config$comparisons[[comparison]][[bait]]$control), unlist(config$comparisons[[comparison]][[bait]]$treatment))
 
