@@ -1,6 +1,7 @@
 from __future__ import print_function
 from snakemake.shell import shell
 from Bio import SeqIO, Seq
+import os, sys
 
 __author__ = "Behram Radmanesh"
 __copyright__ = "Copyright 2016, Behram Radmanesh"
@@ -37,8 +38,9 @@ def primer_coords(fn, primer):
             yield i, (chrom, start, stop)
 
 
-def parse_fasta(fasta, bed, primer):
-    f = open('temp.bed', 'w')
+def parse_fasta(fasta, bed, primer, output):
+    #temp = 'temp_' + bait + '.bed'
+    f = open(output, 'w')
     res = list(primer_coords(fasta, primer))
     if len(res) == 0:
         raise ValueError("Primer %s was not found in %s" % (primer, fasta))
@@ -57,9 +59,10 @@ def parse_fasta(fasta, bed, primer):
 
 # run to purify bed
 parse_fasta(
-    fasta=snakemake.input.fasta,
-    bed=snakemake.input.bed,
-    primer=extra)
+    fasta=snakemake.input.fasta[0],
+    bed=snakemake.input.bed[0],
+    primer=extra,
+    output=snakemake.output[0])
 
 
 """

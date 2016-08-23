@@ -9,6 +9,13 @@ for comparison in config['comparisons']:
             bait=config['comparisons'][comparison]
         )
     )
+for bait in config['baits']:
+    targets.extend(
+        expand(
+            'reduced_genome/{enzyme}_{bait}_flanking_sequences_{fragLen}_unique.fa',
+            bait=bait,
+            enzyme=config['baits'][bait]['primary_enz_name'],
+            fragLen=config['baits'][bait]['fragment_len']))
     
 HERE = srcdir('')
 WRAPPER = './wrappers'
@@ -22,113 +29,136 @@ def wrapper_for(tool):
 rule all:
     input:
         targets
-        
+    
 rule reduced_genome:
     input:
         enzyme = "reduced_genome/{enzyme}.fa",
-        genome = "reduced_genome/{genome}.fa"
+        genome = config['reference_genome']['location']
     output:
-        "reduced_genome/{genome}_{enzyme}_flanking_sequences_{fragLen}_unique.fa",
-        "reduced_genome/{genome}_{enzyme}_flanking_sequences_{fragLen}_unique_2.fa",
-        "reduced_genome/{genome}_{enzyme}_flanking_sites_{fragLen}_unique_2.bed"
+        'reduced_genome/{enzyme}_{bait}_flanking_sequences_{fragLen}_unique.fa',
+        "reduced_genome/{enzyme}_{bait}_flanking_sequences_{fragLen}_unique_2.fa",
+        "reduced_genome/{enzyme}_{bait}_flanking_sites_{fragLen}_unique_2.bed"
     params:
         fragLen = "{fragLen}",
         enzyme = "{enzyme}",
-        genome = "{genome}"
+        genome = config['reference_genome']['name'],
+        bait = "{bait}"
     wrapper:
         wrapper_for('reduced_genome')
-
         
 rule bowtie2_build:
     input:
-        reduced_genome="reduced_genome/{genome}_{enzyme}_flanking_sequences_{fragLen}_unique.fa"
+        reduced_genome="reduced_genome/{enzyme}_{bait}_flanking_sequences_{fragLen}_unique.fa"
     output:
-        "reduced_genome/{genome}_{enzyme}_flanking_sequences_{fragLen}_unique.{num}.bt2"
+        "reduced_genome/{enzyme}_{bait}_flanking_sequences_{fragLen}_unique.{num}.bt2"
     params:
-        prefix = "reduced_genome/{genome}_{enzyme}_flanking_sequences_{fragLen}_unique"
+        prefix = "reduced_genome/{enzyme}_{bait}_flanking_sequences_{fragLen}_unique"
     shell:
-        "bowtie2-build {input.reduced_genome} {params.prefix}"
+        "bowtie2-build -q {input.reduced_genome} {params.prefix}"
 
-genome=None
-enzyme=None
-fragLen=None
+def get_bt2(wc):
+    enzyme=config['baits'][wc.bait]['primary_enz_name']
+    fragLen=config['baits'][wc.bait]['fragment_len']
+    return expand("reduced_genome/{enzyme}_{bait}_flanking_sequences_{fragLen}_unique.{num}.bt2",
+                  enzyme=enzyme, fragLen=fragLen, num=[1, 2, 3, 4],
+                  bait=wc.bait)
 
-def get_bowtie(wc):
-     genome=config['baits'][wc.bait]['reduced_genome']
-     enzyme=config['baits'][wc.bait]['primary_enz_name']
-     fragLen=config['baits'][wc.bait]['fragment_len']
-     num=[1, 2, 3, 4]
-     return expand("reduced_genome/{genome}_{enzyme}_flanking_sequences_{fragLen}_unique.{num}.bt2")
-        
+def index(wc):
+    enzyme=config['baits'][wc.bait]['primary_enz_name']
+    fragLen=config['baits'][wc.bait]['fragment_len']
+    return (
+        "reduced_genome/{enzyme}_{bait}_flanking_sequences_{fragLen}_unique"
+        .format(enzyme=enzyme, fragLen=fragLen, bait=wc.bait))
+
 rule bowtie2:
     input:
-        bowtie=get_bowtie,
-        fastq=lambda wc: config["samples"][wc.bait][wc.sample]
+        bowtie=get_bt2,
+        fastq=lambda wc: config["samples"][bait][wc.sample]
     output:
-        aligned_sam="sam_files/{wildcards.bait}/{sample}_aligned.sam",
-        unaligned_sam="sam_files/{wildcards.bait}/{sample}_unaligned.sam"
+        aligned_sam="sam_files/{bait}/{sample}_aligned.sam",
+        unaligned_sam="sam_files/{bait}/{sample}_unaligned.sam"
     threads:
         8
     params:
-        index="reduced_genome/{genome}_{enzyme}_flanking_sequences_{fragLen}_unique"
+        index=index,
+        fragLen=config['baits'][bait]['fragment_len']
     shell:
-        "bowtie2 -p {threads} -N 0 -5 {fragLen} \
-        --un {output.unaligned_sam} \
-        -x {params.index} \
-        -U {input.fastq} \
-        -S {output.aligned_sam}"
+        "bowtie2 -p {threads} -N 0 -5 {params.fragLen} "
+        "--un {output.unaligned_sam} "
+        "-x {params.index} "
+        "-U {input.fastq} "
+        "-S {output.aligned_sam}"
    
 
 rule bedGraph_Counts:
     input:
-        sam="sam_files/{wildcards.bait}/{sample}_aligned.sam"
+        sam="sam_files/{bait}/{sample}_aligned.sam"
     output:
-        "sam_files/{wildcards.bait}/{sample}_aligned.bedGraph"
+        "sam_files/{bait}/{sample}_aligned.bedGraph"
     wrapper:
         wrapper_for("sam_bedGraph")
 
 def get_fasta(wc):
-    genome=config['baits'][wc.bait]['reduced_genome']
     enzyme=config['baits'][wc.bait]['primary_enz_name']
     fragLen=config['baits'][wc.bait]['fragment_len']
-    return expand('reduced_genome/{genome}_{enzyme}_flanking_sequences_{fragLen}_unique_2.fa')
+    return expand('reduced_genome/{enzyme}_{bait}_flanking_sequences_{fragLen}_unique_2.fa',
+                  enzyme=enzyme, fragLen=fragLen, bait=wc.bait)
 
 def get_bed(wc):
-    genome=config['baits'][wc.bait]['reduced_genome']
     enzyme=config['baits'][wc.bait]['primary_enz_name']
     fragLen=config['baits'][wc.bait]['fragment_len']
-    return expand('reduced_genome/{genome}_{enzyme}_flanking_sites_{fragLen}_unique_2.bed')
-
+    return expand('reduced_genome/{enzyme}_{bait}_flanking_sites_{fragLen}_unique_2.bed',
+                  enzyme=enzyme, fragLen=fragLen, bait=wc.bait)
+    
 rule purify_helper:
     input:
         fasta=get_fasta,
         bed=get_bed
     output:
-        temp("temp.bed")
+        temp("temp_{bait}.bed")
     params:
-        extra=lambda wc: config["baits"][wc.bait]["primer"]
+        extra=config['baits'][bait]['primer']
     wrapper:
         wrapper_for("4C_purify")
 
 
 rule purify_aligned_bedGraph:
     input:
-        aligned_bedG="sam_files/{wildcards.bait}/{sample}_aligned.bedGraph",
-        temp_bed = "temp.bed"
+        aligned_bedG="sam_files/{bait}/{sample}_aligned.bedGraph",
+        temp_bed = "temp_{bait}.bed"
     output:
-        "bedGraphs/{wildcards.bait}/{sample}_aligned_rm_self_und.bedGraph"
+        "bedGraphs/{bait}/{sample}_aligned_rm_self_und.bedGraph"
     shell:
-        "bedtools substract -a input.aligned_bedG -b input.temp_bed"
+        "bedtools subtract -a {input.aligned_bedG} -b {input.temp_bed} "
+        "> {output[0]} "
+
+
+"""
+'my name is {name}'.format(name='ryan')
+'a={0}, b={1}, c={2}'.format('a', 'b', 'c')
+class A(object):
+    pass
+
+a = A()
+a.myattribute = 1
+a.myattribute
+a.dummyattribute
+'the attribute value is {0.myattribute}'.format(a)
+'the attribute value is {x.dummyattribute}'.format(x=a)
+"""
 
 def get_bedgraphs(wc):
-    samples = config['comparisons'][wc.comparison][wc.bait]
-    return expand('bedGraphs/{wildcards.bait}/{sample}_aligned_rm_self_und.bedGraph', sample=samples)
+    samples = []
+    for v in config['comparisons'][wc.comparison][wc.bait].values():
+        samples.extend(v)
+    return expand('bedGraphs/{bait}/{sample}_aligned_rm_self_und.bedGraph',
+                  sample=samples, bait=wc.bait)
 
-        
+
 rule R_script:
     input:
         bedGraph=get_bedgraphs
     output:
-        "output/{comparison}/{wildcards.bait}/{wildcards.bait}_stats.txt"
+        "output/{comparison}/{bait}/{bait}_stats.txt"
     shell:
-        "Rscript 4C.R --bait {wildcards.bait} --comparison {wildcards.comparison}"
+        "Rscript 4C.R --bait {bait} --comparison {comparison}"

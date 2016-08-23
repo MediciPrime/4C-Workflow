@@ -31,48 +31,49 @@ enzyme={snakemake.params.enzyme}
 genome={snakemake.params.genome}
 enzymeLoc={snakemake.input.enzyme}
 genomeLoc={snakemake.input.genome}
+bait={snakemake.params.bait}
 oligoMatch ${{enzymeLoc}} ${{genomeLoc}} \
-	   ${{genome}}_${{enzyme}}_restriction_sites_oligomatch.bed
+	   ${{enzyme}}_${{bait}}_restriction_sites_oligomatch.bed
 #get coordinates of upstream fragments
 awk -v fl=$fl '{{print $1"\\t"$2-fl"\\t"$2}}' \
-    ${{genome}}_${{enzyme}}_restriction_sites_oligomatch.bed >up.txt
+    ${{enzyme}}_${{bait}}_restriction_sites_oligomatch.bed >up.txt
 #get coordinates of downstream fragments
 awk -v fl=$fl '{{print $1"\\t"$3"\\t"$3+fl}}' \
-    ${{genome}}_${{enzyme}}_restriction_sites_oligomatch.bed > down.txt
+    ${{enzyme}}_${{bait}}_restriction_sites_oligomatch.bed > down.txt
 #combine up and downstream fragments
-cat up.txt down.txt > ${{genome}}_${{enzyme}}_flanking_sites_${{fl}}_2.bed
+cat up.txt down.txt > ${{enzyme}}_${{bait}}_flanking_sites_${{fl}}_2.bed
 #remove any fragments with negative coordinates (incude as prior step)
 awk '{{if($2 >= 0 && $3 >=0) print $0}}' \
-    ${{genome}}_${{enzyme}}_flanking_sites_${{fl}}_2.bed \
+    ${{enzyme}}_${{bait}}_flanking_sites_${{fl}}_2.bed \
     | grep -v -E 'random|JH|GL|Un' - | sort \
-    | uniq  > ${{genome}}_${{enzyme}}_flanking_sites_${{fl}}_unique_2.bed
+    | uniq  > ${{enzyme}}_${{bait}}_flanking_sites_${{fl}}_unique_2.bed
 #get the sequence of unique flanking coordinates
 fastaFromBed -fi ${{genomeLoc}} -bed \
-	     ${{genome}}_${{enzyme}}_flanking_sites_${{fl}}_unique_2.bed -fo \
-	     ${{genome}}_${{enzyme}}_flanking_sequences_${{fl}}_unique_2.fa
+	     ${{enzyme}}_${{bait}}_flanking_sites_${{fl}}_unique_2.bed -fo \
+	     ${{enzyme}}_${{bait}}_flanking_sequences_${{fl}}_unique_2.fa
 #get only sequences from FASTA file
-grep -v '^>' ${{genome}}_${{enzyme}}_flanking_sequences_${{fl}}_unique_2.fa \
+grep -v '^>' ${{enzyme}}_${{bait}}_flanking_sequences_${{fl}}_unique_2.fa \
     | sort | uniq -i -u \
     | grep -xF -f - -B 1 \
-	   ${{genome}}_${{enzyme}}_flanking_sequences_${{fl}}_unique_2.fa \
-    | grep -v '^--' > ${{genome}}_${{enzyme}}_flanking_sequences_${{fl}}_unique.fa
+	   ${{enzyme}}_${{bait}}_flanking_sequences_${{fl}}_unique_2.fa \
+    | grep -v '^--' > ${{enzyme}}_${{bait}}_flanking_sequences_${{fl}}_unique.fa
 
 #remove unwanted intermediate files
 rm up.txt
 rm down.txt
 
 #make a BED file of unique sequences
-grep '^>' ${{genome}}_${{enzyme}}_flanking_sequences_${{fl}}_unique.fa > \
-     ${{genome}}_${{enzyme}}_flanking_sites_${{fl}}_unique.bed
-sed -i 's/>//g' ${{genome}}_${{enzyme}}_flanking_sites_${{fl}}_unique.bed
-sed -i 's/:\|-/\\t/g' ${{genome}}_${{enzyme}}_flanking_sites_${{fl}}_unique.bed
+grep '^>' ${{enzyme}}_${{bait}}_flanking_sequences_${{fl}}_unique.fa > \
+     ${{enzyme}}_${{bait}}_flanking_sites_${{fl}}_unique.bed
+sed -i 's/>//g' ${{enzyme}}_${{bait}}_flanking_sites_${{fl}}_unique.bed
+sed -i 's/:\|-/\\t/g' ${{enzyme}}_${{bait}}_flanking_sites_${{fl}}_unique.bed
 
 # move all dm6* files to reduced_genome directory
 rm ./reduced_genome/${{genome}}.fa.fai
-rm ./${{genome}}_${{enzyme}}_flanking_sites_${{fl}}_2.bed
-rm ./${{genome}}_${{enzyme}}_flanking_sites_${{fl}}_unique.bed
-rm ./${{genome}}_${{enzyme}}_restriction_sites_oligomatch.bed
-mv ./dm6* reduced_genome/
+rm ./${{enzyme}}_${{bait}}_flanking_sites_${{fl}}_2.bed
+rm ./${{enzyme}}_${{bait}}_flanking_sites_${{fl}}_unique.bed
+rm ./${{enzyme}}_${{bait}}_restriction_sites_oligomatch.bed
+mv ./${{enzyme}}* reduced_genome/
 
 exit 0;
 """)
