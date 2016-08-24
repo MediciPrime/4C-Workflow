@@ -54,7 +54,6 @@ pcre=8.39=0
 perl-threaded=5.22.0=10
 pip=8.1.2=py35_0
 pixman=0.32.6=0
-pybedtools=0.7.8=py35_1
 pycrypto=2.6.1=py35_4
 pysam=0.9.1=py35_0
 pysftp=0.2.8=py35_0
