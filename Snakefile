@@ -147,4 +147,4 @@ rule R_script:
     output:
         "output/{comparison}/{bait}/{bait}_stats.txt"
     shell:
-        "Rscript 4C.R --bait {wildtype.bait} --comparison {wildtype.comparison}"
+        "Rscript 4C.R --bait {wildcards.bait} --comparison {wildcards.comparison}"
