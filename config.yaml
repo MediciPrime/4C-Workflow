@@ -47,20 +47,20 @@ comparisons:
 
 samples:
   someBait:
-    mock_1: /data/Lei/4C/behram-4c/raw_data/mock_1.fastq
-    mock_2: /data/Lei/4C/behram-4c/raw_data/mock_2.fastq
-    condition1_1: /data/Lei/4C/behram-4c/raw_data/
-    condition1_2: /data/Lei/4C/behram-4c/raw_data/
-    condition2_1: /data/Lei/4C/behram-4c/raw_data/
-    condition2_2: /data/Lei/4C/behram-4c/raw_data/
+    mock_1: /from/dir/location/raw_data/mock_1.fastq
+    mock_2: /from/dir/location/raw_data/mock_2.fastq
+    condition1_1: /from/dir/location/raw_data/condition1_1.fasta
+    condition1_2: /from/dir/location/raw_data/condition1_2.fasta
+    condition2_1: /from/dir/location/raw_data/condition2_1.fasta
+    condition2_2: /from/dir/location/raw_data/condition2_2.fasta
     
   nht:
-    mock_1: /data/Lei/4C/behram-4c/raw_data/mock_1.fastq
-    mock_2: /data/Lei/4C/behram-4c/raw_data/mock_2.fastq
-    condition1_1: /data/Lei/4C/behram-4c/raw_data/
-    condition1_2: /data/Lei/4C/behram-4c/raw_data/
-    condition2_1: /data/Lei/4C/behram-4c/raw_data/
-    condition2_2: /data/Lei/4C/behram-4c/raw_data/
+    mock_1: /from/dir/location/raw_data/mock_1.fastq
+    mock_2: /from/dir/location/raw_data/mock_2.fastq
+    condition1_1: /from/dir/location/raw_data/condition1_1.fasta
+    condition1_2: /from/dir/location/raw_data/condition1_2.fasta
+    condition2_1: /from/dir/location/raw_data/condition2_1.fasta
+    condition2_2: /from/dir/location/raw_data/condition2_2.fasta
 
 baits:
   someBait:    
@@ -71,7 +71,7 @@ baits:
     species: dm
     primary_enz_name: hindiii
     fragment_len: 37
-    primer: ACCGTTTTTGACAACAGCAGCTGTA
+    primer: AGCTGTA
   
   nht:
     bait_chr: chr2L
@@ -81,7 +81,7 @@ baits:
     species: dm
     primary_enz_name: hindiii
     fragment_len: 37
-    primer: ACCGTTTTTGACAACAGCAGCTGTA
+    primer: AGCTGTA
     
 reference_genome:
   name: dm6
