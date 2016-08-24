@@ -133,20 +133,6 @@ rule purify_aligned_bedGraph:
         "> {output[0]} "
 
 
-"""
-'my name is {name}'.format(name='ryan')
-'a={0}, b={1}, c={2}'.format('a', 'b', 'c')
-class A(object):
-    pass
-
-a = A()
-a.myattribute = 1
-a.myattribute
-a.dummyattribute
-'the attribute value is {0.myattribute}'.format(a)
-'the attribute value is {x.dummyattribute}'.format(x=a)
-"""
-
 def get_bedgraphs(wc):
     samples = []
     for v in config['comparisons'][wc.comparison][wc.bait].values():
@@ -161,4 +147,4 @@ rule R_script:
     output:
         "output/{comparison}/{bait}/{bait}_stats.txt"
     shell:
-        "Rscript 4C.R --bait {bait} --comparison {comparison}"
+        "Rscript 4C.R --bait {wildtype.bait} --comparison {wildtype.comparison}"
