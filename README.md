@@ -24,6 +24,7 @@ process and you should be able to get *4C-Workflow* up and running.
 
 ## Setup
 
+### 4C-Workflow
 1. Clone the *4C-Workflow* directory into your local directory
 2. Install [Miniconda](http://conda.pydata.org/miniconda.html)
 3. Once installed use the terminal to create a conda while inside the *4C-Workflow* folder
