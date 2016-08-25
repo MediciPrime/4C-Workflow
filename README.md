@@ -15,6 +15,12 @@ process and you should be able to get *4C-Workflow* up and running.
 * [4C-ker Paper](http://journals.plos.org/ploscompbiol/article?id=10.1371%2Fjournal.pcbi.1004780)
 * [Snakemake](https://bitbucket.org/snakemake/snakemake/wiki/Home)
 
+## Contents
+- [Setup](#setup)
+  - [4C-Workflow](#4cworkflow)
+  - [Analysis](#analysis)
+  - [Run](#run)
+- [Results](#results)
 
 ## Setup
 
