@@ -68,7 +68,6 @@ baits:
     bait_coord: 1234567
     bait_name: someBait
     primary_enz: AAGCTT
-    species: dm
     primary_enz_name: hindiii
     fragment_len: 37
     primer: AGCTGTA
@@ -78,7 +77,6 @@ baits:
     bait_coord: 1234567
     bait_name: nht
     primary_enz: AAGCTT
-    species: dm
     primary_enz_name: hindiii
     fragment_len: 37
     primer: AGCTGTA
@@ -86,4 +84,5 @@ baits:
 reference_genome:
   name: dm6
   location: reduced_genome/dm6.fa
+  species: dm
   
