@@ -19,6 +19,7 @@ process and you should be able to get *4C-Workflow* up and running.
 - [Setup](#setup)
   - [4C-Workflow](#4c-workflow)
   - [Analysis](#analysis)
+- [Run](#run)
 - [Results](#results)
 
 ## Setup
@@ -58,29 +59,31 @@ You are now ready to use *4C-Workflow* to analyze your raw 4C data.
 	 - **samples**
 	   - *Snakemake* will use the path name to find all the raw *.fastq* files
 	   - Make sure to insert the **full path** to your *.fastq* files
-	 - **other**
+	 - **baits**
 	     - *bait_chr*: short form of the chromosome name
 	     - *bait_coord*: numerical start site for your primer, usually after restriction enzyme site
 	     - *bait_name*: the shortform bait name
 	     - *primary_enz*: sequence of the primary enzyme
-	     - *species*: shortform species name
-	     - *reduced_genome*: shortform name of reference genome
 	     - *fragment_len*: barcode + primer + primary restriction enzyme, eg. 37
 	     - *primer*: genome sequence for the primer
+	 - **referemce_genome**
+	   - *name*: shortform name of reference genome
+	   - *location*: location of reference genome file
+	   - *species*: shortform species name
 2. Lastly add both a *.fasta* reference genome and primary enzyme sequence to 
    the *reduced_genome* folder
    - **Make Sure** the names for both the reference genome and enzyme match the 
 	 names provided for *primary_enz_name* and *reduced_genome* from **other**
 	 - eg. dm6 == dm6.fasta & hindiii == hindiii.fasta
 
-## RUN!!!
+## Run
 
 1. Finally open the terminal and while inside the *4C-Workflow/* folder run the following command:
    - `sh runscript`
 2. Wait for the analysis to finish and find your results in the *Output/* folder
 
 
-## View Results
+## Results
 
 Either IGV or UCSC Genome Browser can be used to view the .bedGraph and .bed files.
 
