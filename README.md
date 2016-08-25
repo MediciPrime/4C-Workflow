@@ -19,12 +19,18 @@ process and you should be able to get *4C-Workflow* up and running.
 - [Setup](#setup)
   - [4C-Workflow](#4c-workflow)
   - [Analysis](#analysis)
-  - [Run](#run)
 - [Results](#results)
 
 ## Setup
 
+You may have noticed that the setup process consists of two sections 
+**4C-Workflow** and **Analysis**. 4C-Workflow guides you through the setup
+process of getting the various parts of the 4C pipeline working. Analysis 
+will show you how to describe your experiment to 4C-Workflow enabling it 
+to perform an accurate analysis. 
+
 ### 4C-Workflow
+
 1. Clone the *4C-Workflow* directory into your local directory
 2. Install [Miniconda](http://conda.pydata.org/miniconda.html)
 3. Once installed use the terminal to create a conda while inside the *4C-Workflow* folder
