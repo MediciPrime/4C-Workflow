@@ -2,7 +2,9 @@
 
 *4C-Workflow* is a snakemake implementation for the *4C-ker* library.
 This generalized workflow aims to automate the 4C data analysis process allowing
-you to get to your results faster. 
+you to get to your results faster. To that end, the workflow supports multiple 
+baits and comparisons by simply specifying the baits and comparisons within the 
+*config* file.
 
 This workflow depends heavily upon *Miniconda*, *R.4Cker*, and *Snakemake* so if you
 want know what they are checkout the links below. Otherwise just follow the **setup**
@@ -20,7 +22,8 @@ process and you should be able to get *4C-Workflow* up and running.
 2. Install [Miniconda](http://conda.pydata.org/miniconda.html)
 3. Once installed use the terminal to create a conda while inside the *4C-Workflow* folder
    - `conda create --name 4C-Workflow --file environment.txt`
-4. Inside terminal activate the environment, start R and install *R.4Cker* using the following commands:
+4. Inside terminal activate the environment, start R and install *R.4Cker* 
+   using the following commands:
    - `source activate 4C-Workflow`
    - `R`
    - `library(devtools)`
@@ -30,8 +33,9 @@ You are now ready to use *4C-Workflow* to analyze your raw 4C data.
 
 ## Analysis
 
-1. *Snakemake* uses the *config.yaml* file to understand the experimental parameters, personalize it accordingly
-   - The file is divided into three general blocks:
+1. *Snakemake* uses the *config.yaml* file to understand the experimental parameters, 
+   personalize it accordingly
+   - The file is divided into four general blocks:
 	 - **comparisons**
 	   - Raw bedGraphs for each of the experimental comparisons are placed here
 	    - Make sure to follow the **exact formatting** displayed in the example
@@ -50,16 +54,11 @@ You are now ready to use *4C-Workflow* to analyze your raw 4C data.
 	     - *reduced_genome*: shortform name of reference genome
 	     - *fragment_len*: barcode + primer + primary restriction enzyme, eg. 37
 	     - *primer*: genome sequence for the primer
-2. You may also notice the following files:
-   * mock_vs_condition1.tsv
-   * mock_vs_condition2.tsv
-   * condition1_vs_condition2.tsv
-   * A *.tsv* file is created for each of the experimental conditions specified in the **comparisons** section from above
-3. Lastly add both a *.fasta* reference genome and primary enzyme sequence to the *reduced_genome* folder
-   - **Make Sure** the names for both the reference genome and enzyme match the names provided for *primary_enz_name* and *reduced_genome* from **other**
+2. Lastly add both a *.fasta* reference genome and primary enzyme sequence to 
+   the *reduced_genome* folder
+   - **Make Sure** the names for both the reference genome and enzyme match the 
+	 names provided for *primary_enz_name* and *reduced_genome* from **other**
 	 - eg. dm6 == dm6.fasta & hindiii == hindiii.fasta
-
-**Note:** Make sure that your *.tsv* file names have *\_vs\_* between the two conditions you are comparing
 
 ## RUN!!!
 
@@ -74,4 +73,5 @@ Either IGV or UCSC Genome Browser can be used to view the .bedGraph and .bed fil
 
 ### Acknowledgements
 
-This pipeline would not have been possible without the constant guidance from [Ryan Dale](https://github.com/daler) and the awesome resources at the NIH.
+This pipeline would not have been possible without the constant guidance from 
+	[Ryan Dale](https://github.com/daler) and the awesome resources at the NIH.

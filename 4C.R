@@ -30,7 +30,7 @@ dir.create(sprintf("output/%s/", comparison), showWarnings = FALSE)
 
 output_dir = sprintf("output/%s/%s/", comparison, bait)
 
-my_obj = createR4CkerObjectFromFiles(files = files, bait_chr = config$baits[[bait]]$bait_chr, bait_coord = config$baits[[bait]]$bait_coord, bait_name = config$baits[[bait]]$bait_name, primary_enz = config$baits[[bait]]$primary_enz, samples = samples, conditions = c(conditions[1], conditions[2]), replicates = c(replicates[1], replicates[2]), species = config$species, output_dir = output_dir)
+my_obj = createR4CkerObjectFromFiles(files = files, bait_chr = config$baits[[bait]]$bait_chr, bait_coord = config$baits[[bait]]$bait_coord, bait_name = config$baits[[bait]]$bait_name, primary_enz = config$baits[[bait]]$primary_enz, samples = samples, conditions = c(conditions[1], conditions[2]), replicates = c(replicates[1], replicates[2]), species = config$baits[[bait]]$species, output_dir = output_dir)
 
 nb_results = nearBaitAnalysis(my_obj, k=10)
 
