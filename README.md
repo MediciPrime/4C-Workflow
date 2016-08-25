@@ -44,7 +44,7 @@ to perform an accurate analysis.
 
 You are now ready to use *4C-Workflow* to analyze your raw 4C data.
 
-## Analysis
+### Analysis
 
 1. *Snakemake* uses the *config.yaml* file to understand the experimental parameters, 
    personalize it accordingly
