@@ -17,7 +17,7 @@ process and you should be able to get *4C-Workflow* up and running.
 
 ## Contents
 - [Setup](#setup)
-  - [4C-Workflow](#4cworkflow)
+  - [4C-Workflow](#4c-workflow)
   - [Analysis](#analysis)
   - [Run](#run)
 - [Results](#results)
