@@ -105,7 +105,7 @@ directory, you will notice the following folder organization:
   .  
 	├── reduced_genome  
     ├── raw_data  
-    │      └── hindiii.fa  
+	|&nbsp;&nbsp;└── hindiii.fa  
     ├── 4C.R  
 	├── Snakefile  
 	├── config.yaml  
