@@ -20,24 +20,24 @@ process and you should be able to get *4C-Workflow* up and running.
   - [4C-Workflow](#4c-workflow)
   - [Analysis](#analysis)
 - [Run](#run)
-- [Results](#results)
+- [Example](#example)
 
 ## Setup
 
 You may have noticed that the setup process consists of two sections 
 **4C-Workflow** and **Analysis**. *4C-Workflow* guides you through the setup
 process of getting the various parts of the 4C pipeline working. *Analysis* 
-will show you how to describe your experiment to 4C-Workflow enabling it 
+will show you how to describe your experiment to 4C-Workflow thus enabling it 
 to perform an accurate analysis. 
 
 ### 4C-Workflow
 
-1. Clone the *4C-Workflow* directory into your local directory
+1. `git clone` the *4C-Workflow* directory into your local directory
 2. Install [Miniconda](http://conda.pydata.org/miniconda.html)
-3. Once installed use the terminal to create a conda while inside the *4C-Workflow* folder
+3. Once installed use the terminal to create a conda environment while inside 
+   the *4C-Workflow* folder
    - `conda create --name 4C-Workflow --file environment.txt`
-4. Inside terminal activate the environment, start R and install *R.4Cker* 
-   using the following commands:
+4. Within terminal perform the following commands to install *R.4Cker*:
    - `source activate 4C-Workflow`
    - `R`
    - `library(devtools)`
@@ -66,10 +66,10 @@ You are now ready to use *4C-Workflow* to analyze your raw 4C data.
 	     - *primary_enz*: sequence of the primary enzyme
 	     - *fragment_len*: barcode + primer + primary restriction enzyme, eg. 37
 	     - *primer*: genome sequence for the primer
-	 - **referemce_genome**
+	 - **reference_genome**
 	   - *name*: shortform name of reference genome
-	   - *location*: location of reference genome file
-	   - *species*: shortform species name
+		 - *location*: location of reference genome file
+		 - *species*: shortform species name
 2. Lastly add both a *.fasta* reference genome and primary enzyme sequence to 
    the *reduced_genome* folder
    - **Make Sure** the names for both the reference genome and enzyme match the 
@@ -81,11 +81,7 @@ You are now ready to use *4C-Workflow* to analyze your raw 4C data.
 1. Finally open the terminal and while inside the *4C-Workflow/* folder run the following command:
    - `sh runscript`
 2. Wait for the analysis to finish and find your results in the *Output/* folder
-
-
-## Results
-
-Either IGV or UCSC Genome Browser can be used to view the .bedGraph and .bed files.
+   - Either IGV or UCSC Genome Browser can be used to view the .bedGraph and .bed files.
 
 ### Acknowledgements
 
