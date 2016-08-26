@@ -143,7 +143,7 @@ reference_genome_name | mm10
 
 [Complete Yaml](https://github.com/MediciPrime/Repository-Images/blob/master/complete_yaml.png)
 
-Key things to note about the *Complete Yaml*:
+Key things to note about *Complete Yaml*:
 - The bait name *CD83* is the same for sections *comparisons*, *samples* and
   *baits*.
   - This is the case because *4C-Workflow* uses this name to find all
