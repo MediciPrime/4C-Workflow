@@ -144,12 +144,12 @@ reference_genome_name | mm10
 [Complete Yaml](https://github.com/MediciPrime/Repository-Images/blob/master/complete_yaml.png)
 
 Key things to note about the *Complete Yaml*:
-	- The bait name *CD83* is the same for sections *comparisons*, *samples* and
-	  *baits*.
-		  - This is the case because *4C-Workflow* uses this name to find all
-			the necessary information to create the pipeline.
-		  - In addition, the same reason applies to why *cd83_1* and *cd83_2* 
-			are the same in *comparisons* and *samples*. 
+- The bait name *CD83* is the same for sections *comparisons*, *samples* and
+  *baits*.
+  - This is the case because *4C-Workflow* uses this name to find all
+  the necessary information to create the pipeline.
+  - In addition, the same reason applies to why *cd83_1* and *cd83_2* 
+	are the same in *comparisons* and *samples*. 
 	- Also note how keeping the raw data and reference genome is the recommend
 	  folders shortens the path to the file location.
 
