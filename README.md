@@ -101,11 +101,17 @@ to get a basic 4C-Workflow pipeline to work.
 
 Assuming that you have already performed `git clone` on the *4C-Workflow*
 directory, you will notice the following folder organization: 
+.
+|--reduced_genome
+|	|--hindiii.fa
+|--raw_data
+|--4C.R
+|--Snakefile
+|--config.yaml
+|--environment.txt
+|--runscript
+|--README.md
 
-var routes = (
-<Route name="reduced_genome">
-<Route name="wrapper">
-)
 
 
 ### Setup *config.yaml*
