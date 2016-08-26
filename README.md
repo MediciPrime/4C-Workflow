@@ -110,20 +110,43 @@ directory, you will notice the following directory organization:
    *4C-Workflow/*. 
 2. Next download the raw *cd83 fastq* files and extract them into *raw_data/*
    - Link: [cd83_fastq](https://helix.nih.gov/~radmaneshbs/cd83_fastq.tar.gz)
+	 (275 MB)
    - Although not required, it will make your life a bit easier to place raw
 	 fastq data within the *raw_data/* folder.
 3. Lastly, you will need the reference genome for the organism the 4C experiment
    was performed on, in this case *Mus musculus*, download and extract into the
    *reduced_genome/* directory.
    - Link: [mm10_genome](https://helix.nih.gov/~radmaneshbs/mm10_fasta.tar.gz)
+	 (828 MB)
    - Once again although not required, placing the file into *reduced_genome/* 
 	 will make this process a bit easier.
 
-**Note:** both links contain large (<.84 Gb) files
-
 ### Setup *config.yaml*
 
+The following [link](http://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM2055604)
+will take you to the GEO page for the study. All the information you need to
+perform a 4C analysis on the raw *cd83_1.fastq* and *cd83_2.fastq* data is
+provided on this page. However to save yourself some time I will provide all the
+required experimental information below. Please try to enter this information
+into the *config.yaml* file before viewing the image of what the file *should* 
+look like. Also please refer back to the *Analysis* section of this *README.md* 
+if you are confused with the different parts of the config file. 
 
+Type | Value
+-----|------
+comparison | *wildtype_vs_cd43-negative*
+control | cd83_1
+treatment | cd83_2
+samples | cd83_1, cd83_1
+bait_chr | chr13
+bait_coord | 43773618
+bait_name | CD83
+primary_enz | AAGCTT
+primary_enz_name | hindiii
+fragment_len | 26
+primer | CCATGACTAACTAG
+species | mm
+reference_genome_name | mm10
 
 ## Acknowledgements
 
