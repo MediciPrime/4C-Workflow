@@ -150,7 +150,7 @@ Key things to note about *Complete Yaml*:
   the necessary information to create the pipeline.
   - In addition, the same reason applies to why *cd83_1* and *cd83_2* 
 	are the same in *comparisons* and *samples*. 
-	- Also note how keeping the raw data and reference genome is the recommend
+	- Also note how keeping the raw data and reference genome in the recommend
 	  folders shortens the path to the file location.
 	  
 Before continuing please make sure your directory structure looks *exactly* like
