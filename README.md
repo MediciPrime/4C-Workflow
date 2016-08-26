@@ -156,6 +156,7 @@ Key things to note about *Complete Yaml*:
 Before continuing please make sure your directory structure looks *exactly* like
 the image below. If it's not then 4C-Workflow will not know where to find the
 necessary information.
+
 ![Final_Directory](https://github.com/MediciPrime/Repository-Images/blob/master/final_directory.png)
 
 ### Run
