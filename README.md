@@ -102,10 +102,10 @@ to get a basic 4C-Workflow pipeline to work.
 Assuming that you have already performed `git clone` on the *4C-Workflow*
 directory, you will notice the following folder organization: 
 
-  .
+  .  
 	├── reduced_genome  
     ├── raw_data  
-    │   └── hindiii.fa  
+    │      └── hindiii.fa  
     ├── 4C.R  
 	├── Snakefile  
 	├── config.yaml  
