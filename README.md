@@ -21,6 +21,8 @@ process and you should be able to get *4C-Workflow* up and running.
   - [Analysis](#analysis)
 - [Run](#run)
 - [Example](#example)
+  - [Download Raw Fastq Files](#download raw fastq files)
+  - [Setup config.yaml](#setup config.yaml)
 
 ## Setup
 
@@ -104,6 +106,20 @@ directory, you will notice the following directory organization:
 
 ![Initial Directory Overview](https://github.com/MediciPrime/Repository-Images/blob/master/initial_dir_overview.png)
 
+1. The first thing to do is to create a folder called *raw_data* within 
+   *4C-Workflow/*. 
+2. Next download the raw *cd83 fastq* files and extract them into *raw_data/*
+   - Link: [cd83_fastq](https://helix.nih.gov/~radmaneshbs/cd83_fastq.tar.gz)
+   - Although not required, it will make your life a bit easier to place raw
+	 fastq data within the *raw_data/* folder.
+3. Lastly, you will need the reference genome for the organism the 4C experiment
+   was performed on, in this case *Mus musculus*, download and extract into the
+   *reduced_genome/* directory.
+   - Link: [mm10_genome](https://helix.nih.gov/~radmaneshbs/mm10_fasta.tar.gz)
+   - Once again although not required, placing the file into *reduced_genome/* 
+	 will make this process a bit easier.
+
+**Note:** both links contain large (>.87 Gb) files
 
 ### Setup *config.yaml*
 
