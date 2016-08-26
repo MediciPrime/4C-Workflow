@@ -21,8 +21,8 @@ process and you should be able to get *4C-Workflow* up and running.
   - [Analysis](#analysis)
 - [Run](#run)
 - [Example](#example)
-  - [Download Raw Fastq Files](#download raw fastq files)
-  - [Setup config.yaml](#setup config.yaml)
+  - [Download Raw Fastq Files](#downloadrawfastqfiles)
+  - [Setup config.yaml](#setupconfig.yaml)
 
 ## Setup
 
@@ -119,7 +119,7 @@ directory, you will notice the following directory organization:
    - Once again although not required, placing the file into *reduced_genome/* 
 	 will make this process a bit easier.
 
-**Note:** both links contain large (>.87 Gb) files
+**Note:** both links contain large (<.84 Gb) files
 
 ### Setup *config.yaml*
 
