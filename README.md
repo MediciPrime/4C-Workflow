@@ -152,11 +152,16 @@ Key things to note about *Complete Yaml*:
 	are the same in *comparisons* and *samples*. 
 	- Also note how keeping the raw data and reference genome is the recommend
 	  folders shortens the path to the file location.
+	  
+Before continuing please make sure your directory structure looks *exactly* like
+the image below. If it's not then 4C-Workflow will not know where to find the
+necessary information.
+![Final_Directory](https://github.com/MediciPrime/Repository-Images/blob/master/final_directory.png)
 
 ### Run
 
-Now that 4C-Workflow has a good understanding what the experiment was about you
-can go forward and perform the analysis. 
+Now that 4C-Workflow has a good understanding of the experiment you can go 
+forward and perform the analysis. 
 
 1. Open the terminal and while inside the *4C-Workflow/* folder run the 
    following command:
