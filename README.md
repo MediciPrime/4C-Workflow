@@ -21,7 +21,7 @@ process and you should be able to get *4C-Workflow* up and running.
   - [Analysis](#analysis)
 - [Example](#example)
   - [Download Raw Fastq Files](#downloadrawfastqfiles)
-  - [Setup config.yaml](#setup\ config.yaml)
+  - [Setup config.yaml](#setupconfig.yaml)
   - [Run](#run)
 - [Acknowledgements](#acknowledgements)
 
