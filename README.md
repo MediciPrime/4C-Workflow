@@ -153,9 +153,9 @@ Key things to note about *Complete Yaml*:
 	- Also note how keeping the raw data and reference genome in the recommend
 	  folders shortens the path to the file location.
 	  
-Before continuing please make sure your directory structure looks *exactly* like
-the image below. If it's not then 4C-Workflow will not know where to find the
-necessary information.
+Before continuing please ensure that your directory structure looks *exactly* 
+like the image below. If it's not then 4C-Workflow will not know where to find
+the necessary information.
 
 ![Final_Directory](https://github.com/MediciPrime/Repository-Images/blob/master/final_directory.png)
 
