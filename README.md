@@ -103,15 +103,15 @@ Assuming that you have already performed `git clone` on the *4C-Workflow*
 directory, you will notice the following folder organization: 
 
   .
-	├── reduced_genome              # 
-    ├── raw_data                    # Documentation files (alternatively `doc`)
-    │   └── hindiii.fa              # Table of contents
-    ├── 4C.R
-	├── Snakefile
-	├── config.yaml
-	├── environment.txt
-	├── runscript
-	└──  README.md
+	├── reduced_genome  
+    ├── raw_data  
+    │   └── hindiii.fa  
+    ├── 4C.R  
+	├── Snakefile  
+	├── config.yaml  
+	├── environment.txt  
+	├── runscript  
+	└──  README.md  
 
 ### Setup *config.yaml*
 
