@@ -100,18 +100,10 @@ to get a basic 4C-Workflow pipeline to work.
 ### Download Raw Fastq Files
 
 Assuming that you have already performed `git clone` on the *4C-Workflow*
-directory, you will notice the following folder organization: 
+directory, you will notice the following directory organization: 
 
-  .  
-	├── reduced_genome  
-    ├── raw_data  
-	|&nbsp;&nbsp;└── hindiii.fa  
-    ├── 4C.R  
-	├── Snakefile  
-	├── config.yaml  
-	├── environment.txt  
-	├── runscript  
-	└──  README.md  
+![Initial Directory Overview](https://github.com/MediciPrime/Repository-Images/blob/master/initial_dir_overview.png)
+
 
 ### Setup *config.yaml*
 
@@ -120,4 +112,4 @@ directory, you will notice the following folder organization:
 ## Acknowledgements
 
 This pipeline would not have been possible without the constant guidance from 
-	[Ryan Dale](https://github.com/daler) and the awesome resources at the NIH.
+[Ryan Dale](https://github.com/daler) and the awesome resources at the NIH.
