@@ -19,10 +19,11 @@ process and you should be able to get *4C-Workflow* up and running.
 - [Setup](#setup)
   - [4C-Workflow](#4c-workflow)
   - [Analysis](#analysis)
-- [Run](#run)
 - [Example](#example)
   - [Download Raw Fastq Files](#downloadrawfastqfiles)
   - [Setup config.yaml](#setupconfig.yaml)
+  - [Run](#run)
+- [Acknowledgements](#acknowledgements)
 
 ## Setup
 
@@ -79,15 +80,6 @@ You are now ready to use *4C-Workflow* to analyze your raw 4C data.
    - **Make Sure** the names for both the reference genome and enzyme match the 
 	 names provided for *primary_enz_name* and *reduced_genome* from **other**
 	 - eg. dm6 == dm6.fasta & hindiii == hindiii.fasta
-
-## Run
-
-1. Finally open the terminal and while inside the *4C-Workflow/* folder run the 
-   following command:
-   - `sh runscript`
-2. Wait for the analysis to finish and find your results in the *Output/* folder
-   - Either IGV or UCSC Genome Browser can be used to view the .bedGraph and 
-	 .bed files.
 	 
 ## Example
 
@@ -151,7 +143,30 @@ reference_genome_name | mm10
 
 [Complete Yaml](https://github.com/MediciPrime/Repository-Images/blob/master/complete_yaml.png)
 
+Key things to note about the *Complete Yaml*:
+	- The bait name *CD83* is the same for sections *comparisons*, *samples* and
+	  *baits*.
+		  - This is the case because *4C-Workflow* uses this name to find all
+			the necessary information to create the pipeline.
+		  - In addition, the same reason applies to why *cd83_1* and *cd83_2* 
+			are the same in *comparisons* and *samples*. 
+	- Also note how keeping the raw data and reference genome is the recommend
+	  folders shortens the path to the file location.
 
+### Run
+
+Now that 4C-Workflow has a good understanding what the experiment was about you
+can go forward and perform the analysis. 
+
+1. Open the terminal and while inside the *4C-Workflow/* folder run the 
+   following command:
+   - `sh runscript`
+2. Wait for the analysis to finish and find your results in the *Output/* folder
+   - Either IGV or UCSC Genome Browser can be used to view the .bedGraph and 
+	 .bed files.
+
+**Note:** you are working with actual *raw data* thus the analysis will take
+awhile.
 
 ## Acknowledgements
 
