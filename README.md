@@ -68,7 +68,7 @@ You are now ready to use *4C-Workflow* to analyze your raw 4C data.
 	     - *primer*: genome sequence for the primer
 	 - **reference_genome**
 	    - *name*: shortform name of reference genome
-	   - *location*: location of reference genome file
+	    - *location*: location of reference genome file
 		 - *species*: shortform species name
 2. Lastly add both a *.fasta* reference genome and primary enzyme sequence to 
    the *reduced_genome* folder
