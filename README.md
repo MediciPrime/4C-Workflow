@@ -66,7 +66,8 @@ You are now ready to use *4C-Workflow* to analyze your raw 4C data.
 	     - *bait_coord*: numerical start site for your primer, usually after 
 		   restriction enzyme site
 	     - *bait_name*: the shortform bait name
-	     - *primary_enz*: sequence of the primary enzyme
+	     - *primary_enz*: sequence of the primary restriction enzyme
+		 - *primary_enz_name*: name of the primary restriction enzyme
 	     - *fragment_len*: barcode + primer + primary restriction enzyme, eg. 37
 	     - *primer*: genome sequence for the primer
 	 - **reference_genome**
@@ -147,6 +148,10 @@ fragment_len | 26
 primer | CCATGACTAACTAG
 species | mm
 reference_genome_name | mm10
+
+[Complete Yaml](https://github.com/MediciPrime/Repository-Images/blob/master/complete_yaml.png)
+
+
 
 ## Acknowledgements
 
