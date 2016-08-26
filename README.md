@@ -130,7 +130,7 @@ Type | Value
 comparison | *wildtype_vs_cd43-negative*
 control | cd83_1
 treatment | cd83_2
-samples | cd83_1, cd83_1
+samples | cd83_1, cd83_2
 bait_chr | chr13
 bait_coord | 43773618
 bait_name | CD83
