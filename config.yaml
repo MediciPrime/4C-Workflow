@@ -1,13 +1,13 @@
 comparisons:
   mock_vs_condition1:
-    nht:
+    someBait1:
       control:
         - mock_1
         - mock_2
       treatment:
         - condition1_1
         - condition1_2
-    someBait:
+    someBait2:
       control:
         - mock_1
         - mock_2
@@ -15,14 +15,14 @@ comparisons:
         - condition1_1
         - condition1_2
   mock_vs_condition2:
-    nht:
+    someBait1:
       control:
         - mock_1
         - mock_2
       treatment:
         - condition2_1
         - condition2_2      
-    someBait:
+    someBait2:
       control:
         - mock_1
         - mock_2
@@ -30,14 +30,14 @@ comparisons:
         - condition2_1
         - condition2_2    
   condition1_vs_condition2:
-    nht:
+    someBait1:
       control:
         - condition1_1
         - condition1_2
       treatment:
         - condition2_1
         - condition2_2
-    someBait:
+    someBait2:
       control:
         - condition1_1
         - condition1_2
@@ -46,7 +46,7 @@ comparisons:
         - condition2_2
 
 samples:
-  someBait:
+  someBait1:
     mock_1: /from/dir/location/raw_data/mock_1.fastq
     mock_2: /from/dir/location/raw_data/mock_2.fastq
     condition1_1: /from/dir/location/raw_data/condition1_1.fasta
@@ -54,7 +54,7 @@ samples:
     condition2_1: /from/dir/location/raw_data/condition2_1.fasta
     condition2_2: /from/dir/location/raw_data/condition2_2.fasta
     
-  nht:
+  someBait2:
     mock_1: /from/dir/location/raw_data/mock_1.fastq
     mock_2: /from/dir/location/raw_data/mock_2.fastq
     condition1_1: /from/dir/location/raw_data/condition1_1.fasta
@@ -63,19 +63,19 @@ samples:
     condition2_2: /from/dir/location/raw_data/condition2_2.fasta
 
 baits:
-  someBait:    
+  someBait1:    
     bait_chr: chr2L
     bait_coord: 1234567
-    bait_name: someBait
+    bait_name: someBait1
     primary_enz: AAGCTT
     primary_enz_name: hindiii
     fragment_len: 37
     primer: AGCTGTA
   
-  nht:
+  someBait2:
     bait_chr: chr2L
     bait_coord: 1234567
-    bait_name: nht
+    bait_name: someBait2
     primary_enz: AAGCTT
     primary_enz_name: hindiii
     fragment_len: 37

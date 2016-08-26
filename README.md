@@ -47,8 +47,8 @@ You are now ready to use *4C-Workflow* to analyze your raw 4C data.
 
 ### Analysis
 
-1. *Snakemake* uses the *config.yaml* file to understand the experimental parameters, 
-   personalize it accordingly
+1. *Snakemake* uses the *config.yaml* file to understand the experimental 
+   parameters, personalize it accordingly
    - The file is divided into four general blocks:
 	 - **comparisons**
 	   - Raw bedGraphs for each of the experimental comparisons are placed here
@@ -61,7 +61,8 @@ You are now ready to use *4C-Workflow* to analyze your raw 4C data.
 	   - Make sure to insert the **full path** to your *.fastq* files
 	 - **baits**
 	     - *bait_chr*: short form of the chromosome name
-	     - *bait_coord*: numerical start site for your primer, usually after restriction enzyme site
+	     - *bait_coord*: numerical start site for your primer, usually after 
+		   restriction enzyme site
 	     - *bait_name*: the shortform bait name
 	     - *primary_enz*: sequence of the primary enzyme
 	     - *fragment_len*: barcode + primer + primary restriction enzyme, eg. 37
@@ -78,12 +79,40 @@ You are now ready to use *4C-Workflow* to analyze your raw 4C data.
 
 ## Run
 
-1. Finally open the terminal and while inside the *4C-Workflow/* folder run the following command:
+1. Finally open the terminal and while inside the *4C-Workflow/* folder run the 
+   following command:
    - `sh runscript`
 2. Wait for the analysis to finish and find your results in the *Output/* folder
-   - Either IGV or UCSC Genome Browser can be used to view the .bedGraph and .bed files.
+   - Either IGV or UCSC Genome Browser can be used to view the .bedGraph and 
+	 .bed files.
+	 
+## Example
 
-### Acknowledgements
+The example *config.yaml* is setup to handle an experiment with two baits,
+*someBait1* and *someBait2*, and three comparisons, *mock_vs_condition1*, 
+*mock_vs_condition2* and *condition1_vs_condition2*. The basic organizational
+structure of this example is key to getting an experiment with any number of 
+*baits* or *comparisons* analyzed. Please note that deviating from this
+structure will likely cause *4C-Workflow* to complain and stop working. Now 
+before analyzing your own data I recommend that you follow the example below 
+to get a basic 4C-Workflow pipeline to work. 
+
+### Download Raw Fastq Files
+
+Assuming that you have already performed `git clone` on the *4C-Workflow*
+directory, you will notice the following folder organization: 
+
+var routes = (
+<Route name="reduced_genome">
+<Route name="wrapper">
+)
+
+
+### Setup *config.yaml*
+
+
+
+## Acknowledgements
 
 This pipeline would not have been possible without the constant guidance from 
 	[Ryan Dale](https://github.com/daler) and the awesome resources at the NIH.
