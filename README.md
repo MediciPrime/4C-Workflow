@@ -61,7 +61,7 @@ You are now ready to use *4C-Workflow* to analyze your raw 4C data.
 		  - *bedGraph/* is the folder that *Snakemake* will place the files into
 	 - **samples**
 	   - *Snakemake* will use the path name to find all the raw *.fastq* files
-	   - Make sure to insert the **full path** to your *.fastq* files
+	    - Make sure to insert the **full path** to your *.fastq* files
 	 - **baits**
 	     - *bait_chr*: short form of the chromosome name
 	     - *bait_coord*: numerical start site for your primer, usually after 
