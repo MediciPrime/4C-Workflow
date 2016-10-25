@@ -146,5 +146,7 @@ rule R_script:
         bedGraph=get_bedgraphs
     output:
         "output/{comparison}/{bait}/{bait}_stats.txt"
+    params:
+        pval=config['differential_analysis']['pval']
     shell:
-        "Rscript 4C.R --bait {wildcards.bait} --comparison {wildcards.comparison}"
+        "Rscript 4C.R --bait {wildcards.bait} --comparison {wildcards.comparison} --pval {params.pval}"

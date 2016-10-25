@@ -7,11 +7,13 @@ library(argparse)
 parser <- ArgumentParser()
 parser$add_argument("--bait", nargs=1, help="bait being used")
 parser$add_argument("--comparison", nargs=1, help="comparison being made")
+parser$add_argument("--pval", nargs=1, help="p-value for DESeq2 differential analysis")
 
 args <- parser$parse_args()
 
 bait <- args$bait
 comparison <- args$comparison
+pval <- args$pval
 
 library(R.4Cker)
 library(yaml)
@@ -37,3 +39,29 @@ nb_results = nearBaitAnalysis(my_obj, k=10)
 cis_results = cisAnalysis(my_obj, k=10)
 
 trans_results = transAnalysis(my_obj, k=20)
+
+# differential analysis via DESeq2
+
+differentialAnalysis(obj=my_obj,
+                     norm_counts_avg=nb_results$norm_counts_avg,
+                     windows=nb_results$window_counts,
+                     conditions=c(conditions[1], conditions[2]),
+                     region="nearbait",
+                     coordinates=NULL,
+                     pval=pval[1])
+
+differentialAnalysis(obj=my_obj,
+                     norm_counts_avg=cis_results$norm_counts_avg,
+                     windows=cis_results$window_counts,
+                     conditions=c(conditions[1], conditions[2]),
+                     region="cis",
+                     coordinates=NULL,
+                     pval=pval[1])
+ 
+differentialAnalysis(obj=my_obj,
+                     norm_counts_avg=trans_results$norm_counts_avg,
+                     windows=trans_results$window_counts,
+                     conditions=c(conditions[1], conditions[2]),
+                     region="trans",
+                     coordinates=NULL,
+                     pval=pval[1])

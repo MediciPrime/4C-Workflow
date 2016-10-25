@@ -1,88 +1,52 @@
 comparisons:
-  mock_vs_condition1:
+  mock_vs_siAGO2:
     nht:
       control:
         - mock_1
         - mock_2
       treatment:
-        - condition1_1
-        - condition1_2
-    someBait:
-      control:
-        - mock_1
-        - mock_2
-      treatment:
-        - condition1_1
-        - condition1_2
-  mock_vs_condition2:
+        - siAGO2_1
+        - siAGO2_2
+  mock_vs_dsLamin:
     nht:
       control:
         - mock_1
         - mock_2
       treatment:
-        - condition2_1
-        - condition2_2      
-    someBait:
-      control:
-        - mock_1
-        - mock_2
-      treatment:
-        - condition2_1
-        - condition2_2    
-  condition1_vs_condition2:
+        - dsLamin_1
+        - dsLamin_2
+  siAGO2_vs_dsLamin:
     nht:
       control:
-        - condition1_1
-        - condition1_2
+        - siAGO2_1
+        - siAGO2_2
       treatment:
-        - condition2_1
-        - condition2_2
-    someBait:
-      control:
-        - condition1_1
-        - condition1_2
-      treatment:
-        - condition2_1
-        - condition2_2
+        - dsLamin_1
+        - dsLamin_2
 
 samples:
-  someBait:
-    mock_1: /from/dir/location/raw_data/mock_1.fastq
-    mock_2: /from/dir/location/raw_data/mock_2.fastq
-    condition1_1: /from/dir/location/raw_data/condition1_1.fasta
-    condition1_2: /from/dir/location/raw_data/condition1_2.fasta
-    condition2_1: /from/dir/location/raw_data/condition2_1.fasta
-    condition2_2: /from/dir/location/raw_data/condition2_2.fasta
+  nht:
+    mock_1: /data/Lei/4C/behram-4c/raw_data/mock_1.fastq
+    mock_2: /data/Lei/4C/behram-4c/raw_data/mock_2.fastq
+    siAGO2_1: /data/Lei/4C/behram-4c/raw_data/siAGO2_1.fastq
+    siAGO2_2: /data/Lei/4C/behram-4c/raw_data/siAGO2_2.fastq
+    dsLamin_1: /data/Lei/4C/behram-4c/raw_data/dsLamin_1.fastq
+    dsLamin_2: /data/Lei/4C/behram-4c/raw_data/dsLamin_2.fastq
     
-  nht:
-    mock_1: /from/dir/location/raw_data/mock_1.fastq
-    mock_2: /from/dir/location/raw_data/mock_2.fastq
-    condition1_1: /from/dir/location/raw_data/condition1_1.fasta
-    condition1_2: /from/dir/location/raw_data/condition1_2.fasta
-    condition2_1: /from/dir/location/raw_data/condition2_1.fasta
-    condition2_2: /from/dir/location/raw_data/condition2_2.fasta
-
 baits:
-  someBait:    
-    bait_chr: chr2L
-    bait_coord: 1234567
-    bait_name: someBait
-    primary_enz: AAGCTT
-    primary_enz_name: hindiii
-    fragment_len: 37
-    primer: AGCTGTA
-  
   nht:
     bait_chr: chr2L
-    bait_coord: 1234567
+    bait_coord: 15318925
     bait_name: nht
     primary_enz: AAGCTT
     primary_enz_name: hindiii
     fragment_len: 37
-    primer: AGCTGTA
+    primer: ACCGTTTTTGACAACAGCAGCTGTA
     
 reference_genome:
   name: dm6
   location: reduced_genome/dm6.fa
   species: dm
   
+differential_analysis:
+  pval: 0.05
