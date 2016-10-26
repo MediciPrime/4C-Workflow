@@ -57,11 +57,12 @@ differentialAnalysis(obj=my_obj,
                      region="cis",
                      coordinates=NULL,
                      pval=pval[1])
- 
-differentialAnalysis(obj=my_obj,
-                     norm_counts_avg=trans_results$norm_counts_avg,
-                     windows=trans_results$window_counts,
-                     conditions=c(conditions[1], conditions[2]),
-                     region="trans",
-                     coordinates=NULL,
-                     pval=pval[1])
+
+######################## Trans Analysis is NOT recommended #################
+## differentialAnalysis(obj=my_obj,
+##                      norm_counts_avg=trans_results$norm_counts_avg,
+##                      windows=trans_results$window_counts,
+##                      conditions=c(conditions[1], conditions[2]),
+##                      region="trans",
+##                      coordinates=NULL,
+##                      pval=pval[1])
