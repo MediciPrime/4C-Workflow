@@ -132,7 +132,7 @@ control | cd83_1
 treatment | cd83_2
 samples | cd83_1, cd83_2
 bait_chr | chr13
-bait_coord | 43773618
+bait_coord | 43773612
 bait_name | CD83
 primary_enz | AAGCTT
 primary_enz_name | hindiii
