@@ -69,7 +69,7 @@ You are now ready to use *4C-Workflow* to analyze your raw 4C data.
 	     - *bait_name*: the shortform bait name
 	     - *primary_enz*: sequence of the primary restriction enzyme
 		 - *primary_enz_name*: name of the primary restriction enzyme
-	     - *fragment_len*: barcode + primer + primary restriction enzyme, eg. 37
+	     - *fragment_len*: (read length) - (barcode + primer + primary restriction enzyme), eg. 37
 	     - *primer*: genome sequence for the primer
 	 - **reference_genome**
 	    - *name*: shortform name of reference genome
