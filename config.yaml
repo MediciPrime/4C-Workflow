@@ -1,90 +1,146 @@
+###################################################################################################
+#### NOTE: Be sure to adhere to the exact formatting displayed in this example 'config.yaml'. #####
+########## The keyword 'NOTE' will be placed anywhere the specific format is important.  ##########
+###################################################################################################
+
+# The experimental comparisons are specified here in the 'comparisons' section
 comparisons:
-  mock_vs_condition1:
-    someBait1:
+  # NOTE: '_vs_' is mandatory
+  wildtype_vs_CD43-negative:  # the example compares wildtype cells vs CD43-negative cells,
+  # NOTE: your bait goes next
+    CD83:                     # the bait used in this comparison was 'CD83'
+  # NOTE: DO NOT CHANGE since you will 'always' be comparing 'control' with 'treatment'
       control:
-        - mock_1
-        - mock_2
+        - cd83_1              # the control is 'cd83_1'
       treatment:
-        - condition1_1
-        - condition1_2
-    someBait2:
-      control:
-        - mock_1
-        - mock_2
-      treatment:
-        - condition1_1
-        - condition1_2
-  mock_vs_condition2:
-    someBait1:
-      control:
-        - mock_1
-        - mock_2
-      treatment:
-        - condition2_1
-        - condition2_2      
-    someBait2:
-      control:
-        - mock_1
-        - mock_2
-      treatment:
-        - condition2_1
-        - condition2_2    
-  condition1_vs_condition2:
-    someBait1:
-      control:
-        - condition1_1
-        - condition1_2
-      treatment:
-        - condition2_1
-        - condition2_2
-    someBait2:
-      control:
-        - condition1_1
-        - condition1_2
-      treatment:
-        - condition2_1
-        - condition2_2
+        - cd83_2              # the treatment is 'cd83_1'
 
+################################################################################################################
+# If multiple baits were used for a specific comparison add them next, otherwise proceed to 'samples'          #
+# For completeness, below is what the 'comparisons' section would look like if there were multiple comparisons #
+# and multiple baits.  Feel free to remove this comment block when performing the actual analysis.             #
+################################################################################################################
+# comparisons:                                                                                                 #
+#   mock_vs_condition1:                                                                                        #
+#     someBait2:                                                                                               #
+#       control:                                                                                               #
+#         - mock_1                                                                                             #
+#         - mock_2                                                                                             #
+#       treatment:                                                                                             #
+#         - condition1_1                                                                                       #
+#         - condition1_2                                                                                       #
+#   mock_vs_condition2:                                                                                        #
+#     someBait1:                                                                                               #
+#       control:                                                                                               #
+#         - mock_1                                                                                             #
+#         - mock_2                                                                                             #
+#       treatment:                                                                                             #
+#         - condition2_1                                                                                       #
+#         - condition2_2                                                                                       #
+#     someBait2:                                                                                               #
+#       control:                                                                                               #
+#         - mock_1                                                                                             #
+#         - mock_2                                                                                             #
+#       treatment:                                                                                             #
+#         - condition2_1                                                                                       #
+#         - condition2_2                                                                                       #
+#   condition1_vs_condition2:                                                                                  #
+#     someBait1:                                                                                               #
+#       control:                                                                                               #
+#         - condition1_1                                                                                       #
+#         - condition1_2                                                                                       #
+#       treatment:                                                                                             #
+#         - condition2_1                                                                                       #
+#         - condition2_2                                                                                       #
+#     someBait2:                                                                                               #
+#       control:                                                                                               #
+#         - condition1_1                                                                                       #
+#         - condition1_2                                                                                       #
+#       treatment:                                                                                             #
+#         - condition2_1                                                                                       #
+#         - condition2_2                                                                                       #
+################################################################################################################
+
+# The experimental samples go in the 'samples' section
 samples:
-  someBait1:
-    mock_1: /from/dir/location/raw_data/mock_1.fastq
-    mock_2: /from/dir/location/raw_data/mock_2.fastq
-    condition1_1: /from/dir/location/raw_data/condition1_1.fasta
-    condition1_2: /from/dir/location/raw_data/condition1_2.fasta
-    condition2_1: /from/dir/location/raw_data/condition2_1.fasta
-    condition2_2: /from/dir/location/raw_data/condition2_2.fasta
-    
-  someBait2:
-    mock_1: /from/dir/location/raw_data/mock_1.fastq
-    mock_2: /from/dir/location/raw_data/mock_2.fastq
-    condition1_1: /from/dir/location/raw_data/condition1_1.fasta
-    condition1_2: /from/dir/location/raw_data/condition1_2.fasta
-    condition2_1: /from/dir/location/raw_data/condition2_1.fasta
-    condition2_2: /from/dir/location/raw_data/condition2_2.fasta
+  # NOTE: the EXACT NAME of the bait from above goes here
+  CD83:                                  # See how the EXACT bait from 'samples' was used
+    cd83_1: raw_data/cd83_1.fastq        # I recommend placing your .fastq files in the 'raw_data' directory,
+    cd83_2: raw_data/cd83_2.fastq        # however if you don't want to then specify the COMPLETE PATH.
 
+#############################################################################################################
+# Once again an example of how the multiple comparisons and baits would extend into the 'samples' sections. #
+#############################################################################################################
+# samples:                                                                                                  #
+#   someBait1:                                                                                              #
+#     mock_1: /from/dir/location/raw_data/mock_1.fastq                                                      #
+#     mock_2: /from/dir/location/raw_data/mock_2.fastq                                                      #
+#     condition1_1: /from/dir/location/raw_data/condition1_1.fasta                                          #
+#     condition1_2: /from/dir/location/raw_data/condition1_2.fasta                                          #
+#     condition2_1: /from/dir/location/raw_data/condition2_1.fasta                                          #
+#     condition2_2: /from/dir/location/raw_data/condition2_2.fasta                                          #
+#                                                                                                           #
+#   someBait2:                                                                                              #
+#     mock_1: /from/dir/location/raw_data/mock_1.fastq                                                      #
+#     mock_2: /from/dir/location/raw_data/mock_2.fastq                                                      #
+#     condition1_1: /from/dir/location/raw_data/condition1_1.fasta                                          #
+#     condition1_2: /from/dir/location/raw_data/condition1_2.fasta                                          #
+#     condition2_1: /from/dir/location/raw_data/condition2_1.fasta                                          #
+#     condition2_2: /from/dir/location/raw_data/condition2_2.fasta                                          #
+#############################################################################################################
+
+# The description for the baits go in the 'baits' section
 baits:
-  someBait1:    
-    bait_chr: chr2L
-    bait_coord: 1234567
-    bait_name: someBait1
-    primary_enz: AAGCTT
-    primary_enz_name: hindiii
-    fragment_len: 37
-    primer: AGCTGTA
-  
-  someBait2:
-    bait_chr: chr2L
-    bait_coord: 1234567
-    bait_name: someBait2
-    primary_enz: AAGCTT
-    primary_enz_name: hindiii
-    fragment_len: 37
-    primer: AGCTGTA
-    
+  # NOTE: once again the EXACT NAME of the bait from the two above section goes here
+  CD83:
+    bait_chr: chr13                 # shortform of the chromosome name
+    bait_coord: 43773618            # numerical start site for your primer, usually after restriction enzyme
+    bait_name: CD83                 # shortform name of the bait
+    primary_enz: AAGCTT             # sequence for the primary restriction enzyme
+    primary_enz_name: hindiii       # name of the primary restriction enzyme
+    fragment_len: 26                # barcode + primer + primary restriction enzyme, eg. 26
+    primer: CCATGACTAACTAG          # genome sequence for the primer
+
+##########################################################################################
+# And again, what it would look like if your analysis had multiple baits and comparisons #
+##########################################################################################
+# baits:                                                                                 #
+#   someBait1:                                                                           #
+#     bait_chr: chr2L                                                                    # 
+#     bait_coord: 1234567                                                                #
+#     bait_name: someBait1                                                               #
+#     primary_enz: AAGCTT                                                                #
+#     primary_enz_name: hindiii                                                          #
+#     fragment_len: 37                                                                   #
+#     primer: AGCTGTA                                                                    #
+#                                                                                        # 
+#   someBait2:                                                                           #
+#     bait_chr: chr2L                                                                    #
+#     bait_coord: 1234567                                                                #
+#     bait_name: someBait2                                                               #
+#     primary_enz: AAGCTT                                                                #
+#     primary_enz_name: hindiii                                                          #
+#     fragment_len: 37                                                                   #
+#     primer: AGCTGTA                                                                    #
+##########################################################################################
+
+# Reference genome of the organism you are working with is described in the 'reference_genome' section
 reference_genome:
-  name: dm6
-  location: reduced_genome/dm6.fa
-  species: dm
-  
+  name: mm10                          # shortform name of reference genome
+  location: reduced_genome/mm10.fa    # again I recommend placing the reference_genome inside the specified dir
+  species: mm                         # shortform name for the species
+
+#####################################################################################################
+# I don't think you will be using multiple model organisms the pipeline isn't optimized for that.   #
+# If you are using multiple organisms then submit an issue and I will work on adapting the pipeline #
+# to your needs. =)                                                                                 #
+#####################################################################################################
+# reference_genome:                                                                                 #
+#   name: dm6                                                                                       #
+#   location: reduced_genome/dm6.fa                                                                 #
+#   species: dm                                                                                     #
+#####################################################################################################
+
+# Lastly include the p-value you would like to use for the differential analysis
 differential_analysis:
-  pval: 0.05
+  pval: 0.05                    # recommend 0.01 or 0.05
