@@ -88,7 +88,10 @@ rule bowtie2:
         "--un {output.unaligned_sam} "
         "-x {params.index} "
         "-U {input.fastq} "
-        "-S {output.aligned_sam}"
+        "-S {output.aligned_sam}.temp"
+        " && samtools view -q 20 {output.aligned_sam}.temp"
+        " > {output.aligned_sam}"
+        " && rm {output.aligned_sam}.temp"
    
 
 rule bedGraph_Counts:

@@ -38,7 +38,7 @@ nb_results = nearBaitAnalysis(my_obj, k=10)
 
 cis_results = cisAnalysis(my_obj, k=10)
 
-trans_results = transAnalysis(my_obj, k=20)
+#trans_results = transAnalysis(my_obj, k=20)
 
 # differential analysis via DESeq2
 
