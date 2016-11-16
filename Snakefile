@@ -113,14 +113,13 @@ def get_bed(wc):
     
 rule purify_helper:
     input:
-        fasta=get_fasta,
         bed=get_bed
     output:
         temp("temp_{bait}.bed")
     params:
-        extra=config['baits'][bait]['primer']
-    wrapper:
-        wrapper_for("4C_purify")
+        extra=config['baits'][bait]['bait_coord']+6
+    shell:
+        "grep -C 1 {params.extra} {input.bed} > {output[0]}"
 
 
 rule purify_aligned_bedGraph:
