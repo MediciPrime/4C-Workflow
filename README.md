@@ -27,11 +27,10 @@ process and you should be able to get *4C-Workflow* up and running.
 
 ## Setup
 
-You may have noticed that the setup process consists of two sections 
-**4C-Workflow** and **Analysis**. *4C-Workflow* guides you through the setup
-process of getting the various parts of the 4C pipeline working. *Analysis* 
-will show you how to describe your experiment to 4C-Workflow thus enabling it 
-to perform an accurate analysis. 
+* *4C-Workflow* guides you through the setup process of getting the various parts 
+of the 4C pipeline working. 
+* *Analysis* will show you how to describe your experiment to 4C-Workflow thus 
+enabling it to perform an accurate analysis. 
 
 ### 4C-Workflow
 
@@ -59,6 +58,9 @@ You are now ready to use *4C-Workflow* to analyze your raw 4C data.
 	 names provided for *primary_enz_name* and *reduced_genome* from **other**
 	 - eg. dm6 == dm6.fasta & hindiii == hindiii.fasta
 	 
+*Note:* everything you need to use 4C-Workflow is in the example *config.yaml* file,
+for additional help go through the example.
+
 ## Example
 
 The example *config.yaml* is setup to handle an experiment with two baits,
