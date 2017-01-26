@@ -27,11 +27,10 @@ process and you should be able to get *4C-Workflow* up and running.
 
 ## Setup
 
-You may have noticed that the setup process consists of two sections 
-**4C-Workflow** and **Analysis**. *4C-Workflow* guides you through the setup
-process of getting the various parts of the 4C pipeline working. *Analysis* 
-will show you how to describe your experiment to 4C-Workflow thus enabling it 
-to perform an accurate analysis. 
+* *4C-Workflow* guides you through the setup process of getting the various parts 
+of the 4C pipeline working. 
+* *Analysis* will show you how to describe your experiment to 4C-Workflow thus 
+enabling it to perform an accurate analysis. 
 
 ### 4C-Workflow
 
@@ -44,43 +43,24 @@ to perform an accurate analysis.
    - `source activate 4C-Workflow`
    - `R`
    - `library(devtools)`
-   - `install_github("rr1859/R.4Cker")`
+   - `install_github("rr1859/R.4Cker", ref = "b0e1923")`
 
 You are now ready to use *4C-Workflow* to analyze your raw 4C data.
 
 ### Analysis
 
 1. *Snakemake* uses the *config.yaml* file to understand the experimental 
-   parameters, personalize it accordingly
-   - The file is divided into four general blocks:
-	 - **comparisons**
-	   - Raw bedGraphs for each of the experimental comparisons are placed here
-	    - Make sure to follow the **exact formatting** displayed in the example
-	    - **Don't forget** to change the *names* for each of the comparisions
-		  - **Note:** Each of the conditions in the example have two replicates
-		  - *bedGraph/* is the folder that *Snakemake* will place the files into
-	 - **samples**
-	   - *Snakemake* will use the path name to find all the raw *.fastq* files
-	    - Make sure to insert the **full path** to your *.fastq* files
-	 - **baits**
-	     - *bait_chr*: short form of the chromosome name
-	     - *bait_coord*: numerical start site for your primer, usually after 
-		   restriction enzyme site
-	     - *bait_name*: the shortform bait name
-	     - *primary_enz*: sequence of the primary restriction enzyme
-		 - *primary_enz_name*: name of the primary restriction enzyme
-	     - *fragment_len*: (read length) - (barcode + primer + primary restriction enzyme), eg. 37
-	     - *primer*: genome sequence for the primer
-	 - **reference_genome**
-	    - *name*: shortform name of reference genome
-	    - *location*: location of reference genome file
-		 - *species*: shortform species name
+    parameters, additional details in example *config.yaml*.
+
 2. Lastly add both a *.fasta* reference genome and primary enzyme sequence to 
    the *reduced_genome* folder
    - **Make Sure** the names for both the reference genome and enzyme match the 
 	 names provided for *primary_enz_name* and *reduced_genome* from **other**
 	 - eg. dm6 == dm6.fasta & hindiii == hindiii.fasta
 	 
+*Note:* everything you need to use 4C-Workflow is in the example *config.yaml* file,
+for additional help go through the example.
+
 ## Example
 
 The example *config.yaml* is setup to handle an experiment with two baits,

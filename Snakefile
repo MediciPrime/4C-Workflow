@@ -81,13 +81,17 @@ rule bowtie2:
         8
     params:
         index=index,
-        fragLen=config['baits'][bait]['fragment_len']
+        fragLen=config['baits'][bait]['fragment_len'],
+        fragLen2=config['baits'][bait]['fragment_len2']
     shell:
-        "bowtie2 -p {threads} -N 0 -5 {params.fragLen} "
+        "bowtie2 -p {threads} -N 0 -5 {params.fragLen2} "
         "--un {output.unaligned_sam} "
         "-x {params.index} "
         "-U {input.fastq} "
-        "-S {output.aligned_sam}"
+        "-S {output.aligned_sam}.temp"
+        " && samtools view -q 20 {output.aligned_sam}.temp"
+        " > {output.aligned_sam}"
+        " && rm {output.aligned_sam}.temp"
    
 
 rule bedGraph_Counts:
@@ -112,14 +116,13 @@ def get_bed(wc):
     
 rule purify_helper:
     input:
-        fasta=get_fasta,
         bed=get_bed
     output:
         temp("temp_{bait}.bed")
     params:
-        extra=config['baits'][bait]['primer']
-    wrapper:
-        wrapper_for("4C_purify")
+        extra=config['baits'][bait]['bait_coord']+6
+    shell:
+        "grep -C 1 {params.extra} {input.bed} > {output[0]}"
 
 
 rule purify_aligned_bedGraph:
@@ -146,5 +149,7 @@ rule R_script:
         bedGraph=get_bedgraphs
     output:
         "output/{comparison}/{bait}/{bait}_stats.txt"
+    params:
+        pval=config['differential_analysis']['pval']
     shell:
-        "Rscript 4C.R --bait {wildcards.bait} --comparison {wildcards.comparison}"
+        "Rscript 4C.R --bait {wildcards.bait} --comparison {wildcards.comparison} --pval {params.pval}"
