@@ -50,7 +50,7 @@ You are now ready to use *4C-Workflow* to analyze your raw 4C data.
 ### Analysis
 
 1. *Snakemake* uses the *config.yaml* file to understand the experimental 
-   parameters, additional details in example *config.yaml*.
+    parameters, additional details in example *config.yaml*.
 
 2. Lastly add both a *.fasta* reference genome and primary enzyme sequence to 
    the *reduced_genome* folder
@@ -112,7 +112,7 @@ control | cd83_1
 treatment | cd83_2
 samples | cd83_1, cd83_2
 bait_chr | chr13
-bait_coord | 43773618
+bait_coord | 43773612
 bait_name | CD83
 primary_enz | AAGCTT
 primary_enz_name | hindiii
