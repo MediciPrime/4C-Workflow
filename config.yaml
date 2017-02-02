@@ -94,7 +94,7 @@ baits:
   # NOTE: once again the EXACT NAME of the bait from the two above section goes here
   CD83:
     bait_chr: chr13                 # shortform of the chromosome name
-    bait_coord: 43773618            # numerical start site for your primer, usually after restriction enzyme
+    bait_coord: 43773612            # numerical start site of restriction enzyme, next to primer
     bait_name: CD83                 # shortform name of the bait
     primary_enz: AAGCTT             # sequence for the primary restriction enzyme
     primary_enz_name: hindiii       # name of the primary restriction enzyme
