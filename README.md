@@ -36,7 +36,9 @@ enabling it to perform an accurate analysis.
 
 1. `git clone` the *4C-Workflow* directory into your local directory
 2. Install [Miniconda](http://conda.pydata.org/miniconda.html)
-3. Once installed use the terminal to create a conda environment while inside 
+3. Use the following command `conda config --add channels <specific_channel>` to add the following channels
+   - conda-forge, inso, bioconda, r
+4. Once the appropriate channels are added use the terminal to create a conda environment while inside 
    the *4C-Workflow* folder
    - `conda create --name 4C-Workflow --file environment.txt`
 4. Within terminal perform the following commands to install *R.4Cker*:
