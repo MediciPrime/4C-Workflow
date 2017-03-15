@@ -65,7 +65,7 @@ def get_bt2(wc):
 
 def index(wc):
     enzyme=config['baits'][wc.bait]['primary_enz_name']
-    fragLen=config['baits'][wc.bait]['fragment_len']
+    fragLen=config['baits'][wc.bait]['fragment_len'] # length of fragment being mapped
     return (
         "reduced_genome/{enzyme}_{bait}_flanking_sequences_{fragLen}_unique"
         .format(enzyme=enzyme, fragLen=fragLen, bait=wc.bait))
@@ -76,13 +76,13 @@ rule bowtie2:
         fastq=lambda wc: config["samples"][bait][wc.sample]
     output:
         aligned_sam="sam_files/{bait}/{sample}_aligned.sam",
-        unaligned_sam="sam_files/{bait}/{sample}_unaligned.sam"
+        unaligned_sam="sam_files/{bait}/{sample}_unaligned.sam",
     threads:
         8
     params:
         index=index,
         fragLen=config['baits'][bait]['fragment_len'],
-        fragLen2=config['baits'][bait]['fragment_len2']
+        fragLen2=config['baits'][bait]['fragment_len2'] # amount of read to trim
     shell:
         "bowtie2 -p {threads} -N 0 -5 {params.fragLen2} "
         "--un {output.unaligned_sam} "
@@ -93,7 +93,6 @@ rule bowtie2:
         " > {output.aligned_sam}"
         " && rm {output.aligned_sam}.temp"
    
-
 rule bedGraph_Counts:
     input:
         sam="sam_files/{bait}/{sample}_aligned.sam"
@@ -120,7 +119,7 @@ rule purify_helper:
     output:
         temp("temp_{bait}.bed")
     params:
-        extra=config['baits'][bait]['bait_coord']+6
+        extra=config['baits'][bait]['bait_coord'] + len(config['baits'][bait]['primary_enz'])
     shell:
         "grep -C 1 {params.extra} {input.bed} > {output[0]}"
 
