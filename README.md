@@ -27,11 +27,10 @@ process and you should be able to get *4C-Workflow* up and running.
 
 ## Setup
 
-You may have noticed that the setup process consists of two sections 
-**4C-Workflow** and **Analysis**. *4C-Workflow* guides you through the setup
-process of getting the various parts of the 4C pipeline working. *Analysis* 
-will show you how to describe your experiment to 4C-Workflow thus enabling it 
-to perform an accurate analysis. 
+* *4C-Workflow* guides you through the setup process of getting the various parts 
+of the 4C pipeline working. 
+* *Analysis* will show you how to describe your experiment to 4C-Workflow thus 
+enabling it to perform an accurate analysis. 
 
 ### 4C-Workflow
 
@@ -51,7 +50,7 @@ You are now ready to use *4C-Workflow* to analyze your raw 4C data.
 ### Analysis
 
 1. *Snakemake* uses the *config.yaml* file to understand the experimental 
-   parameters, additional details in example *config.yaml*.
+    parameters, additional details in example *config.yaml*.
 
 2. Lastly add both a *.fasta* reference genome and primary enzyme sequence to 
    the *reduced_genome* folder
@@ -59,6 +58,9 @@ You are now ready to use *4C-Workflow* to analyze your raw 4C data.
 	 names provided for *primary_enz_name* and *reduced_genome* from **other**
 	 - eg. dm6 == dm6.fasta & hindiii == hindiii.fasta
 	 
+*Note:* everything you need to use 4C-Workflow is in the example *config.yaml* file,
+for additional help go through the example.
+
 ## Example
 
 The example *config.yaml* is setup to handle an experiment with two baits,
@@ -110,7 +112,7 @@ control | cd83_1
 treatment | cd83_2
 samples | cd83_1, cd83_2
 bait_chr | chr13
-bait_coord | 43773618
+bait_coord | 43773612
 bait_name | CD83
 primary_enz | AAGCTT
 primary_enz_name | hindiii
