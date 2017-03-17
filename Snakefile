@@ -82,7 +82,7 @@ rule bowtie2:
     params:
         index=index,
         fragLen=config['baits'][bait]['fragment_len'],
-        fragLen2=config['baits'][bait]['fragment_len2'] # amount of read to trim
+        fragLen2=config['baits'][bait]['fragment_len2']
     shell:
         "bowtie2 -p {threads} -N 0 -5 {params.fragLen2} "
         "--un {output.unaligned_sam} "

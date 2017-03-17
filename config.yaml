@@ -98,7 +98,8 @@ baits:
     bait_name: CD83                 # shortform name of the bait
     primary_enz: AAGCTT             # sequence for the primary restriction enzyme
     primary_enz_name: hindiii       # name of the primary restriction enzyme
-    fragment_len: 26                # barcode + primer + primary restriction enzyme, eg. 26
+    fragment_len: 25                # read length w/out barcode, primer and primary restriction enzyme (pre)
+    fragment_len2: 26               # fragment to remove, e.g. barcode + primer + pre = 26
     primer: CCATGACTAACTAG          # genome sequence for the primer
 
 ##########################################################################################
@@ -111,7 +112,8 @@ baits:
 #     bait_name: someBait1                                                               #
 #     primary_enz: AAGCTT                                                                #
 #     primary_enz_name: hindiii                                                          #
-#     fragment_len: 37                                                                   #
+#     fragment_len: 36                                                                   #
+#     fragment_len2: 37                                                                  #
 #     primer: AGCTGTA                                                                    #
 #                                                                                        # 
 #   someBait2:                                                                           #
