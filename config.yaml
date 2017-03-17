@@ -122,7 +122,8 @@ baits:
 #     bait_name: someBait2                                                               #
 #     primary_enz: AAGCTT                                                                #
 #     primary_enz_name: hindiii                                                          #
-#     fragment_len: 37                                                                   #
+#     fragment_len: 36                                                                   #
+#     fragment_len2: 37                                                                  #
 #     primer: AGCTGTA                                                                    #
 ##########################################################################################
 
